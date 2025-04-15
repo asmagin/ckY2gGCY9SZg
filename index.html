@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/index.css"/>
+</head>
+<body id="main">
+
+<!-- Logo and Navigation -->
+<header class="w-full flex items-center justify-between px-8 py-4 bg-white shadow-sm">
+    <img src="assets/images/logo.svg" alt="Logo" class="h-6"/>
+</header>
+<div class="p-4">
+    <!-- Headline -->
+    <h1 class="my-8 text-[40px] leading-[44px] font-bold text-justify md:text-center tracking-[-0.02em] bg-gradient-to-r from-[#4593A7] to-[#359963] bg-clip-text text-transparent">
+        See clearly, shop simply.
+    </h1>
+
+    <!-- Login Box -->
+    <div class="bg-white shadow-lg p-8 w-full max-w-[470px] space-y-8 m-auto">
+        <div>
+            <h2 class="text-2xl">Welcome back!</h2>
+            <p class="text-gray-500 mt-1">Enter your email and password</p>
+        </div>
+
+        <!-- Email Input -->
+        <div>
+            <label class="block text-sm font-medium text-gray-900 mb-1">
+                Your email<span class="ml-0.5">*</span>
+            </label>
+            <input type="email" placeholder="Email"
+                   class="w-full border-b border-gray-800 focus:outline-none p-4 placeholder-gray-400"/>
+        </div>
+
+        <!-- Password Input -->
+        <div>
+            <label class="block text-sm font-medium text-gray-900 mb-1">
+                Your password<span class="ml-0.5">*</span>
+            </label>
+            <input type="password" placeholder="Password"
+                   class="w-full border-b border-gray-800 focus:outline-none p-4 placeholder-gray-400"/>
+        </div>
+
+        <!-- Login Button -->
+        <button class="w-full bg-[#2F7D92] text-white font-bold py-3 hover:bg-[#256c7e] transition">
+            Log in
+        </button>
+
+        <!-- Links -->
+        <div class="text-center">
+            <a href="#" class="text-sm text-[#2F7D92] font-medium hover:underline block mt-2">Forgot password?</a>
+
+            <div class="flex items-center justify-center gap-2 my-4 text-gray-400 text-sm">
+                <hr class="w-1/4 border-gray-300"/>
+                Don’t have an account?
+                <hr class="w-1/4 border-gray-300"/>
+            </div>
+
+            <a href="#" class="text-[#2F7D92] font-medium hover:underline">Sign up</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
