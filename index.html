@@ -11,7 +11,12 @@
       href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/index.css" />
+    <style>
+      #main {
+        background-image: url("landingBackground.png");
+        font-family: 'Rethink Sans';
+      }
+    </style>
   </head>
   <body id="main">
     <!-- Logo and Navigation -->
@@ -27,48 +32,58 @@
       </h1>
 
       <!-- Required Elements for Azure AD B2C -->
-      <div id="api" class="hidden"></div>
-      <div id="error" class="text-red-500 text-sm mt-2"></div>
 
       <!-- Login Box -->
-      <div class="bg-white shadow-lg p-8 w-full max-w-[470px] space-y-8 m-auto">
+      <div
+        class="bg-white shadow-lg p-8 w-full max-w-[470px] space-y-8 m-auto container unified_container"
+        role="presentation"
+      >
         <div>
           <h2 class="text-2xl">Welcome back!</h2>
           <p class="text-gray-500 mt-1">Enter your email and password</p>
         </div>
 
-        <!-- Email Input -->
-        <div>
-          <label class="block text-sm font-medium text-gray-900 mb-1"> Your email<span class="ml-0.5">*</span> </label>
-          <input
-            id="signInName"
-            type="email"
-            placeholder="Email"
-            class="w-full border-b border-gray-800 focus:outline-none p-4 placeholder-gray-400"
-          />
+        <div id="api">
+          <!-- Email Input -->
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-900 mb-1">
+              Your email<span class="ml-0.5">*</span>
+            </label>
+            <input
+              id="signInName"
+              type="email"
+              placeholder="Email"
+              class="w-full border-b border-gray-800 focus:outline-none p-4 placeholder-gray-400"
+            />
+          </div>
+
+          <!-- Password Input -->
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-900 mb-1">
+              Your password<span class="ml-0.5">*</span>
+            </label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Password"
+              class="w-full border-b border-gray-800 focus:outline-none p-4 placeholder-gray-400"
+            />
+          </div>
+
+          <!-- Login Button -->
+          <div class="mb-6">
+            <button id="next" class="w-full bg-[#2F7D92] text-white font-bold py-3 hover:bg-[#256c7e] transition">
+              Log in
+            </button>
+          </div>
         </div>
-
-        <!-- Password Input -->
-        <div>
-          <label class="block text-sm font-medium text-gray-900 mb-1">
-            Your password<span class="ml-0.5">*</span>
-          </label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Password"
-            class="w-full border-b border-gray-800 focus:outline-none p-4 placeholder-gray-400"
-          />
-        </div>
-
-        <!-- Login Button -->
-        <button id="next" class="w-full bg-[#2F7D92] text-white font-bold py-3 hover:bg-[#256c7e] transition">
-          Log in
-        </button>
-
+        <!-- Errors area  -->
+        <div id="error" class="text-red-500 text-sm mt-2"></div>
         <!-- Links -->
         <div class="text-center">
-          <a id="forgotPassword" href="#" class="text-sm text-[#2F7D92] font-medium hover:underline block mt-2">Forgot password?</a>
+          <a id="forgotPassword" href="#" class="text-sm text-[#2F7D92] font-medium hover:underline block mt-2"
+            >Forgot password?</a
+          >
 
           <div class="flex items-center justify-center gap-2 my-4 text-gray-400 text-sm">
             <hr class="w-1/4 border-gray-300" />
