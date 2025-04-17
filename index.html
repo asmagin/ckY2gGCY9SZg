@@ -183,12 +183,12 @@
 
         <!-- Password Input -->
         <div class="input-wrapper">
-          <label>Your password<span>*</span>
           <input
                   id="password"
                   type="password"
                   placeholder="Password"
           />
+          <label>Your password<span>*</span>
           </label>
         </div>
 
@@ -214,5 +214,19 @@
     </div>
   </div>
 </div>
+
+<script>
+  const observer = new MutationObserver(() => {
+    const forgotPassword = document.getElementById('forgotPassword');
+    const buttons = document.querySelector('.buttons');
+
+    if (forgotPassword && buttons && buttons.parentNode) {
+      buttons.parentNode.insertBefore(forgotPassword, buttons.nextSibling);
+      observer.disconnect(); // stop observing once moved
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>
 </body>
 </html>
