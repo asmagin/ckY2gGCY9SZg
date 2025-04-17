@@ -93,7 +93,7 @@
 
     #api button {
       width: 100%;
-      background-color: #2f7d92;
+      background-color: rgb(47 125 146 / var(--tw-bg-opacity, 1));
       color: white;
       font-weight: 700;
       padding: 0.75rem;
@@ -103,11 +103,11 @@
     }
 
     .btn:hover {
-      background-color: #256c7e;
+      background-color: rgb(47 125 146 / var(--tw-bg-opacity, 1));
     }
 
     .link {
-      color: #2f7d92;
+      color: rgb(47 125 146 / var(--tw-bg-opacity, 1));
       font-weight: 500;
       font-size: 0.875rem;
       text-decoration: none;
@@ -137,6 +137,32 @@
       color: #ef4444;
       font-size: 0.875rem;
       margin-top: 0.5rem;
+    }
+
+    /* Target the form group around password */
+    #api div[data-claim-id="password"] {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Target the link and force it to be placed below */
+    #api div[data-claim-id="password"] a {
+      order: 2;
+      margin-top: 0.5rem;
+      align-self: flex-start;
+      font-size: 0.875rem;
+      color: rgb(47 125 146 / var(--tw-bg-opacity, 1));
+      text-decoration: underline;
+    }
+
+    /* Ensure the input is before the link */
+    #api div[data-claim-id="password"] input {
+      order: 1;
+    }
+
+    /* Optional: adjust spacing */
+    #api div[data-claim-id="password"] label {
+      margin-bottom: 0.25rem;
     }
   </style>
 </head>
