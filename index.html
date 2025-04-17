@@ -139,31 +139,15 @@
       margin-top: 0.5rem;
     }
 
-    /* Target the form group around password */
-    #api div[data-claim-id="password"] {
-      display: flex;
-      flex-direction: column;
+    #api .heading {
+      display: none;
     }
 
-    /* Target the link and force it to be placed below */
-    #api div[data-claim-id="password"] a {
-      order: 2;
-      margin-top: 0.5rem;
-      align-self: flex-start;
-      font-size: 0.875rem;
-      color: rgb(47 125 146 / var(--tw-bg-opacity, 1));
-      text-decoration: underline;
+    #api .intro {
+      display: none;
     }
 
-    /* Ensure the input is before the link */
-    #api div[data-claim-id="password"] input {
-      order: 1;
-    }
 
-    /* Optional: adjust spacing */
-    #api div[data-claim-id="password"] label {
-      margin-bottom: 0.25rem;
-    }
   </style>
 </head>
 <body>
@@ -208,7 +192,7 @@
         </div>
 
         <!-- Login Button -->
-        <button id="next" class="btn" style="background: #2a8af6">Log in</button>
+        <button id="next" class="btn"">Log in</button>
       </div>
 
       <!-- Errors area -->
