@@ -183,20 +183,19 @@
 
         <!-- Password Input -->
         <div class="input-wrapper">
+          <label>Your password<span>*</span></label>
           <input
                   id="password"
                   type="password"
                   placeholder="Password"
           />
-          <label>Your password<span>*</span>
-          </label>
         </div>
 
         <!-- Login Button -->
         <button id="next" class="btn">Log in</button>
 
         <!-- Links -->
-        <div style="text-align: center; margin-top: 16px">
+        <div style="text-align: center; margin-top: 16px" class="input-wrapper">
           <a id="forgotPassword" href="#" class="link">Forgot password?</a>
 
           <div class="separator">
@@ -222,7 +221,7 @@
 
     if (forgotPassword && buttons && buttons.parentNode) {
       buttons.parentNode.insertBefore(forgotPassword, buttons.nextSibling);
-      observer.disconnect(); // stop observing once moved
+      observer.disconnect();
     }
   });
 
