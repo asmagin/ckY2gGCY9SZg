@@ -12,6 +12,7 @@
           href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
           rel="stylesheet"
   />
+  <script src="assets/scripts/script.js" defer></script>
 
   <!-- Inline Styles -->
   <style>
@@ -213,20 +214,5 @@
     </div>
   </div>
 </div>
-
-<script>
-  const observer = new MutationObserver(() => {
-    console.log({ working: 1})
-    const forgotPassword = document.getElementById('forgotPassword');
-    const buttons = document.querySelector('.buttons');
-
-    if (forgotPassword && buttons && buttons.parentNode) {
-      buttons.parentNode.insertBefore(forgotPassword, buttons.nextSibling);
-      observer.disconnect();
-    }
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
-</script>
 </body>
 </html>
