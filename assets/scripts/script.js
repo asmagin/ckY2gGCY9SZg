@@ -1,43 +1,41 @@
-alert('Script working');
+document.addEventListener('DOMContentLoaded', function () {
+    let attempts = 0;
+    const maxAttempts = 30; // timeout failsafe (~3s max)
 
-const observer = new MutationObserver(() => {
-    const forgotPassword = document.getElementById('forgotPassword');
-    const createAccount = document.getElementById('createAccount');
-    const nextButton = document.getElementById('next');
+    const interval = setInterval(() => {
+        const forgotPassword = document.getElementById('forgotPassword');
+        const createAccount = document.getElementById('createAccount');
+        const nextButton = document.getElementById('next');
 
-    if (!forgotPassword || !createAccount || !nextButton) return;
+        if (forgotPassword && createAccount && nextButton) {
+            clearInterval(interval);
 
-    console.log({
-        forgotPassword,
-        createAccount,
-        nextButton,
-        nextButtonParent: nextButton.parentNode
-    });
+            // ✅ Modify and move elements
+            forgotPassword.classList.add('link');
+            forgotPassword.innerHTML = 'Forgot Password?';
 
-    forgotPassword.classList.add('link');
-    forgotPassword.innerHTML = 'Forgot Password?';
+            createAccount.classList.add('link');
+            createAccount.innerHTML = 'Sign Up';
 
-    createAccount.classList.add('link');
-    createAccount.innerHTML = 'Sign Up';
+            const wrapper = document.createElement('div');
+            wrapper.className = 'input-wrapper';
+            wrapper.style.textAlign = 'center';
+            wrapper.style.marginTop = '16px';
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'input-wrapper';
-    wrapper.style.textAlign = 'center';
-    wrapper.style.marginTop = '16px';
+            const separator = document.createElement('div');
+            separator.className = 'separator';
+            separator.innerHTML = `<hr />Don’t have an account?<hr />`;
 
-    const separator = document.createElement('div');
-    separator.className = 'separator';
-    separator.innerHTML = `<hr />Don’t have an account?<hr />`;
+            wrapper.appendChild(forgotPassword);
+            wrapper.appendChild(separator);
+            wrapper.appendChild(createAccount);
 
-    wrapper.appendChild(forgotPassword);
-    wrapper.appendChild(separator);
-    wrapper.appendChild(createAccount);
+            nextButton.parentNode.insertBefore(wrapper, nextButton.nextSibling);
+        }
 
-    if (nextButton.parentNode) {
-        nextButton.parentNode.insertBefore(wrapper, nextButton.nextSibling);
-    }
-
-    observer.disconnect();
+        if (++attempts > maxAttempts) {
+            clearInterval(interval);
+            console.warn('Auth elements not found in time');
+        }
+    }, 100); // check every 100ms
 });
-
-observer.observe(document.body, { childList: true, subtree: true });
