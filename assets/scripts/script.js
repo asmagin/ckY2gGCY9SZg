@@ -9,6 +9,7 @@ function tryMoveAuthLinks() {
     if (forgotPassword && createAccount && nextButton) {
         forgotPassword.classList.add('link');
         forgotPassword.innerHTML = 'Forgot Password?';
+        forgotPassword.style.display = 'block';
 
         createAccount.classList.add('link');
         createAccount.innerHTML = 'Sign Up';
