@@ -37,8 +37,8 @@ const observer = new MutationObserver(() => {
     })
     if (nextButton && nextButton.parentNode) {
         nextButton.parentNode.insertBefore(wrapper, nextButton.nextSibling);
-        observer.disconnect();
     }
+    observer.disconnect();
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
