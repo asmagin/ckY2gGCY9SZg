@@ -1,4 +1,3 @@
-console.log({aaa: 1})
 let attempts = 0;
 const maxAttempts = 30;
 
@@ -6,13 +5,6 @@ const interval = setInterval(() => {
     const forgotPassword = document.getElementById('forgotPassword');
     const createAccount = document.getElementById('createAccount');
     const nextButton = document.getElementById('next');
-
-    console.log({
-        forgotPassword,
-        createAccount,
-        nextButton
-    })
-
     if (forgotPassword && createAccount && nextButton) {
         clearInterval(interval);
 
@@ -42,5 +34,5 @@ const interval = setInterval(() => {
         clearInterval(interval);
         console.warn('Auth elements not found in time');
     }
-}, 100); // check every 100ms
+}, 10);
 
