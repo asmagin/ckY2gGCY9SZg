@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log({ aaa: 1})
     let attempts = 0;
     const maxAttempts = 30; // timeout failsafe (~3s max)
 
@@ -6,6 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const forgotPassword = document.getElementById('forgotPassword');
         const createAccount = document.getElementById('createAccount');
         const nextButton = document.getElementById('next');
+
+        console.log({
+            forgotPassword,
+            createAccount,
+            nextButton
+        })
 
         if (forgotPassword && createAccount && nextButton) {
             clearInterval(interval);
