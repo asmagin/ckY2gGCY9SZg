@@ -1,21 +1,24 @@
+alert('Script working');
 
-alert('Script working')
 const observer = new MutationObserver(() => {
     const forgotPassword = document.getElementById('forgotPassword');
     const createAccount = document.getElementById('createAccount');
+    const nextButton = document.getElementById('next');
+
+    if (!forgotPassword || !createAccount || !nextButton) return;
 
     console.log({
         forgotPassword,
-        createAccount
-    })
+        createAccount,
+        nextButton,
+        nextButtonParent: nextButton.parentNode
+    });
 
-    forgotPassword.classList.add('link')
-
+    forgotPassword.classList.add('link');
     forgotPassword.innerHTML = 'Forgot Password?';
 
     createAccount.classList.add('link');
-    forgotPassword.innerHTML = 'Sign Up';
-
+    createAccount.innerHTML = 'Sign Up';
 
     const wrapper = document.createElement('div');
     wrapper.className = 'input-wrapper';
@@ -30,14 +33,10 @@ const observer = new MutationObserver(() => {
     wrapper.appendChild(separator);
     wrapper.appendChild(createAccount);
 
-    const nextButton = document.getElementById('next');
-    console.log({
-        nextButton,
-        nextButtonParent: nextButton.parentNode
-    })
-    if (nextButton && nextButton.parentNode) {
+    if (nextButton.parentNode) {
         nextButton.parentNode.insertBefore(wrapper, nextButton.nextSibling);
     }
+
     observer.disconnect();
 });
 
