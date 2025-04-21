@@ -1,6 +1,5 @@
 alert('Script working')
-const observer = new MutationObserver(() => {
-    // const forgotPassword = document.getElementById('forgotPassword');
+document.addEventListener('DOMContentLoaded', function () {    // const forgotPassword = document.getElementById('forgotPassword');
     // const buttons = document.querySelector('.buttons');
     //
     //
@@ -37,5 +36,3 @@ const observer = new MutationObserver(() => {
         buttons.parentNode.insertBefore(wrapper, buttons.nextSibling);
     }
 });
-
-observer.observe(document.body, { childList: true, subtree: true });
