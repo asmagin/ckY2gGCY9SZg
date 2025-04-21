@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log({ aaa: 1})
     let attempts = 0;
-    const maxAttempts = 30; // timeout failsafe (~3s max)
+    const maxAttempts = 30;
 
     const interval = setInterval(() => {
         const forgotPassword = document.getElementById('forgotPassword');
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (forgotPassword && createAccount && nextButton) {
             clearInterval(interval);
 
-            // ✅ Modify and move elements
             forgotPassword.classList.add('link');
             forgotPassword.innerHTML = 'Forgot Password?';
 
