@@ -1,4 +1,3 @@
-alert('Script working')
 document.addEventListener('DOMContentLoaded', function () {    // const forgotPassword = document.getElementById('forgotPassword');
     const buttons = document.querySelector('.buttons');
     const forgotPassword = document.getElementById('forgotPassword');
