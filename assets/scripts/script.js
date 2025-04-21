@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {    // const forgotPa
 
     if (forgotPassword && buttons && buttons.parentNode) {
         buttons.parentNode.insertBefore(forgotPassword, buttons.nextSibling);
-        observer.disconnect();
+        // observer.disconnect();
     }
     //
     // const forgotPassword = document.getElementById('forgotPassword');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {    // const forgotPa
     // wrapper.appendChild(createAccount);
 
     // const buttons = document.querySelector('.buttons');
-    if (buttons && buttons.parentNode) {
-        buttons.parentNode.insertBefore(wrapper, buttons.nextSibling);
-    }
+    // if (buttons && buttons.parentNode) {
+    //     buttons.parentNode.insertBefore(wrapper, buttons.nextSibling);
+    // }
 });
