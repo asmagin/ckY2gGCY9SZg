@@ -13,7 +13,6 @@
           rel="stylesheet"
   />
   <script src="https://asmagin.github.io/ckY2gGCY9SZg/assets/scripts/script.js" defer></script>
-  <script defer>alert('working')</script>
 
   <!-- Inline Styles -->
   <style>
@@ -235,21 +234,6 @@
 
           <a id="createAccount" href="#" class="link">Sign up</a>
         </div>
-        <script defer>
-          alert('working')
-          const observer = new MutationObserver(() => {
-            console.log({ working: 1})
-            const forgotPassword = document.getElementById('forgotPassword');
-            const buttons = document.querySelector('.buttons');
-
-            if (forgotPassword && buttons && buttons.parentNode) {
-              buttons.parentNode.insertBefore(forgotPassword, buttons.nextSibling);
-              observer.disconnect();
-            }
-          });
-
-          observer.observe(document.body, { childList: true, subtree: true });
-        </script>
       </div>
 
       <!-- Errors area -->
