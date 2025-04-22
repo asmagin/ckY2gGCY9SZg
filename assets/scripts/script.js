@@ -38,5 +38,13 @@ function tryMoveAuthLinks() {
     }
 }
 
+function checkUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const claimsexchange = params.get('claimsexchange');
+
+    console.log(claimsexchange);
+}
+
 tryMoveAuthLinks()
+checkUrl()
 
