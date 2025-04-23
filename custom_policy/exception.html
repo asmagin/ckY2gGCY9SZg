@@ -138,12 +138,18 @@
       margin-top: 0.5rem;
     }
 
-    #api .heading {
-      display: none;
+      #api .heading h1 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin: 0;
     }
 
-    #api .intro {
-      display: none;
+      #api .intro h2 {
+        color: #6b7280;
+        margin-top: 0.25rem;
+        font-size: 1em;
+        font-weight: normal;
+        margin-block-end: 1.5em;
     }
 
     #api .rememberMe {
@@ -168,23 +174,33 @@
     }
 
     #api .divider {
-      display: none;
+        background-color: #ffea00;
+        border: 1px solid #ef4444;
+        padding: 3px;
     }
 
     #api .create {
-      display: none;
+        background-color: #ffea00;
+        border: 1px solid #ef4444;
+        padding: 3px;
     }
 
     #api #forgotPassword {
-        display: none;
+        background-color: #ffea00;
+        border: 1px solid #ef4444;
+        padding: 3px;
     }
 
     #api form#attributeVerification > .buttons {
-      display: none;
+        background-color: #ffea00;
+        border: 1px solid #ef4444;
+        padding: 3px;
     }
 
     #api a.helpLink.tiny {
-      display: none;
+        background-color: #ffea00;
+        border: 1px solid #ef4444;
+        padding: 3px;
     }
 
     #api div#attributeList ul {
@@ -199,18 +215,12 @@
     #api button#emailVerificationControl_but_verify_code {
       margin-bottom: 8px;
     }
-
-
   </style>
 </head>
 <body>
 <div id="opal-main">
   <header>
-    <img
-            src="https://asmagin.github.io/ckY2gGCY9SZg/assets/images/logo.svg"
-            alt="Logo"
-            style="height: 1.5rem"
-    />
+        <img src="https://asmagin.github.io/ckY2gGCY9SZg/assets/images/logo.svg" alt="Logo" style="height: 1.5rem" />
   </header>
 
   <div class="p-4">
@@ -218,48 +228,7 @@
 
     <!-- Login Box -->
     <div class="container unified_container" role="presentation">
-      <div>
-        <h2 style="font-size: 1.5rem; font-weight: 400; margin: 0;">Welcome back!</h2>
-        <p style="color: #6b7280; margin-top: 0.25rem;">Enter your email and password</p>
-      </div>
-
-      <div id="api">
-        <!-- Email Input -->
-        <div class="input-wrapper">
-          <label for="signInName">Your email<span>*</span></label>
-          <input
-                  id="signInName"
-                  type="email"
-                  placeholder="Email"
-          />
-        </div>
-
-        <!-- Password Input -->
-        <div class="input-wrapper">
-          <label>Your password<span>*</span></label>
-          <input
-                  id="password"
-                  type="password"
-                  placeholder="Password"
-          />
-        </div>
-
-        <!-- Login Button -->
-        <button id="next" class="btn">Log in</button>
-
-        <!-- Links -->
-        <div style="text-align: center; margin-top: 16px" class="input-wrapper">
-          <a id="forgotPassword" href="#" class="link">Forgot password?</a>
-
-          <div class="separator">
-            <hr />
-            Don’t have an account?
-            <hr />
-          </div>
-
-          <a id="createAccount" href="#" class="link">Sign up</a>
-        </div>
-      </div>
+          <div id="api"></div>
 
       <!-- Errors area -->
       <div id="error" class="error"></div>
