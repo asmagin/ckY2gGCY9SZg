@@ -9,6 +9,7 @@ $(document).ready(function () {
         const checkInterval = setInterval(function () {
             if ($('.emailVerificationCode_li').is(':visible')) {
                 $('.email_li').hide();
+                $('.intro').hide();
                 clearInterval(checkInterval);
             }
         }, 50);
