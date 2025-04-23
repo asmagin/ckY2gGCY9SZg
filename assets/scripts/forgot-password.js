@@ -14,4 +14,13 @@ $(document).ready(function () {
             }
         }, 50);
     });
+
+    $('#emailVerificationControl_but_verify_code').on('click', function () {
+        const checkInterval = setInterval(function () {
+            if ($('.emailVerificationControl_but_change_claims').is(':visible')) {
+                $('.buttons').show();
+                clearInterval(checkInterval);
+            }
+        }, 50);
+    })
 });
