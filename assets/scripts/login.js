@@ -5,8 +5,10 @@ function tryMoveAuthLinks() {
     const forgotPassword = document.getElementById('forgotPassword');
     const createAccount = document.getElementById('createAccount');
     const nextButton = document.getElementById('next');
+    const isLoginPage = document.querySelector('[data-name="Unified"]');
 
-    if (forgotPassword && createAccount && nextButton) {
+
+    if (forgotPassword && createAccount && nextButton && isLoginPage) {
         forgotPassword.classList.add('link');
         forgotPassword.innerHTML = 'Forgot Password?';
         forgotPassword.style.display = 'block';
@@ -38,11 +40,5 @@ function tryMoveAuthLinks() {
     }
 }
 
-$(document).ready(function () {
-    const isLoginPage = document.querySelector('[data-name="Unified"]');
-    if(!isLoginPage) {
-        tryMoveAuthLinks()
-    }
-})
-
+tryMoveAuthLinks()
 
