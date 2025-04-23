@@ -129,6 +129,9 @@ input:focus {
 #api .intro h2{
     color: #6b7280; 
     margin-top: 0.25rem;
+    font-size: 1em;
+    font-weight: normal;
+    margin-block-end: 1.5em;
 }
 
 #api .rememberMe {
