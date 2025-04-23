@@ -121,11 +121,14 @@ input:focus {
 }
 
 #api .heading {
-    display: none;
+    font-size: 1.5rem;
+    font-weight: 400; 
+    margin: 0;
 }
 
 #api .intro {
-    display: none;
+    color: #6b7280; 
+    margin-top: 0.25rem;
 }
 
 #api .rememberMe {
