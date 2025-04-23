@@ -7,8 +7,8 @@ $(document).ready(function () {
 
     $('#emailVerificationControl_but_send_code').on('click', function () {
         const checkInterval = setInterval(function () {
-            if ($('.VerificationCode').is(':visible')) {
-                $('#email').closest('.attrEntry').hide();
+            if ($('.emailVerificationCode_li').is(':visible')) {
+                $('.email_li').hide();
                 clearInterval(checkInterval);
             }
         }, 50);
