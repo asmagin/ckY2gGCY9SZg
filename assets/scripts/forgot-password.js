@@ -24,7 +24,7 @@ $(document).ready(function () {
                 if(rePassword.length && newPassword.length) {
                     rePassword.show()
                     newPassword.show()
-                    $('.emailVerificationControl').hide()
+                    $('#emailVerificationControl').hide()
                 }
                 $('#attributeVerification > .buttons').show();
                 clearInterval(checkInterval);
