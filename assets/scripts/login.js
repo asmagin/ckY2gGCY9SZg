@@ -37,5 +37,9 @@ function tryMoveAuthLinks() {
         console.warn('Auth elements not found in time');
     }
 }
-tryMoveAuthLinks()
 
+const isLoginPage = document.querySelector('[data-name="Unified"]');
+
+if(isLoginPage) {
+    tryMoveAuthLinks()
+}
