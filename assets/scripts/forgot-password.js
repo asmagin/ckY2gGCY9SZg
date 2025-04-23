@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
         const checkInterval = setInterval(function () {
-            if ($('.emailVerificationControl_but_change_claims').is(':visible')) {
+            if ($('#emailVerificationControl_but_change_claims').is(':visible')) {
                 $('.buttons').show();
                 clearInterval(checkInterval);
             }
