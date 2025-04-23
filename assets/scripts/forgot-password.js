@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-
     const isForgotPasswordPage = $('[data-name="SelfAsserted"]');
 
     if(!isForgotPasswordPage.length) {
@@ -8,10 +6,11 @@ $(document).ready(function () {
     }
 
     $('#emailVerificationControl_but_send_code').on('click', function () {
-        if (!$('.VerificationCode').is(':visible')) {
-            console.log('VerificationCode is hidden');
-        } else {
-            console.log('VerificationCode is visible');
-        }
+        const checkInterval = setInterval(function () {
+            if ($('.VerificationCode').is(':visible')) {
+                $('#email').closest('.attrEntry').hide();
+                clearInterval(checkInterval);
+            }
+        }, 50);
     });
 });
