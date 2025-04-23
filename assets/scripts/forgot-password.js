@@ -26,7 +26,7 @@ $(document).ready(function () {
                     newPassword.show()
                     $('#emailVerificationControl').hide()
                 }
-                $('#attributeVerification > .buttons').show();
+                $('#attributeVerification > .buttons').addClass('flex');
                 clearInterval(checkInterval);
             }
         }, 50);
