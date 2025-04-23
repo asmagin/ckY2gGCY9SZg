@@ -38,8 +38,11 @@ function tryMoveAuthLinks() {
     }
 }
 
-const isLoginPage = document.querySelector('[data-name="Unified"]');
+$(document).ready(function () {
+    const isLoginPage = document.querySelector('[data-name="Unified"]');
+    if(!isLoginPage) {
+        tryMoveAuthLinks()
+    }
+})
 
-if(isLoginPage) {
-    tryMoveAuthLinks()
-}
+
