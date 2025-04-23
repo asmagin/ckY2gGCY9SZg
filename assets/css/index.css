@@ -120,13 +120,13 @@ input:focus {
     margin-top: 0.5rem;
 }
 
-#api .heading {
+#api .heading h1{
     font-size: 1.5rem;
     font-weight: 400; 
     margin: 0;
 }
 
-#api .intro {
+#api .intro h2{
     color: #6b7280; 
     margin-top: 0.25rem;
 }
