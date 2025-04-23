@@ -37,14 +37,5 @@ function tryMoveAuthLinks() {
         console.warn('Auth elements not found in time');
     }
 }
-
-function checkUrl() {
-    const params = new URLSearchParams(window.location.search);
-    const claimsexchange = params.get('claimsexchange');
-
-    console.log(claimsexchange);
-}
-
 tryMoveAuthLinks()
-checkUrl()
 
