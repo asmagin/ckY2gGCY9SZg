@@ -21,9 +21,9 @@ $(document).ready(function () {
 
                 if (rePassword.length && newPassword.length) {
                     requestAnimationFrame(() => {
+                        $('#emailVerificationControl').hide();
                         rePassword.show();
                         newPassword.show();
-                        $('#emailVerificationControl').hide();
                         $('#attributeVerification > .buttons').addClass('flex');
                     });
                 }
