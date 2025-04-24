@@ -7,12 +7,12 @@ $(document).ready(function () {
 
     $('#emailVerificationControl_but_send_code').on('click', function () {
         const checkInterval = setInterval(function () {
+            $('.email_li').addClass('none')
+            $('.intro').addClass('none')
             if ($('.emailVerificationCode_li').is(':visible')) {
-                $('.email_li').addClass('none')
-                $('.intro').addClass('none')
                 clearInterval(checkInterval);
             }
-        }, 500);
+        }, 10);
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
@@ -29,6 +29,6 @@ $(document).ready(function () {
                 }
                 clearInterval(checkInterval);
             }
-        }, 500);
+        }, 10);
     })
 });
