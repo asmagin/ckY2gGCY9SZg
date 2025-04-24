@@ -12,7 +12,7 @@ $(document).ready(function () {
                 $('.intro').hide();
                 clearInterval(checkInterval);
             }
-        }, 1);
+        }, 10);
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
@@ -29,6 +29,6 @@ $(document).ready(function () {
                 $('#attributeVerification > .buttons').addClass('flex');
                 clearInterval(checkInterval);
             }
-        }, 1);
+        }, 10);
     })
 });
