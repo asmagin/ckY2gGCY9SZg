@@ -16,9 +16,9 @@ $(document).ready(function () {
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
-        $('.emailVerificationCode_li').addClass('none')
         const checkInterval = setInterval(function () {
             if ($('#emailVerificationControl_but_change_claims').is(':visible')) {
+                $('.emailVerificationCode_li').addClass('none')
                 const rePassword = $('.reenterPassword_li')
                 const newPassword = $('.newPassword_li')
                 $('#emailVerificationControl').addClass('none')
