@@ -7,20 +7,20 @@ $(document).ready(function () {
 
     $('#emailVerificationControl_but_send_code').on('click', function () {
         const checkInterval = setInterval(function () {
-            $('.email_li').addClass('none')
-            $('.intro').addClass('none')
             if ($('.emailVerificationCode_li').is(':visible')) {
+                $('.email_li').addClass('none')
+                $('.intro').addClass('none')
                 clearInterval(checkInterval);
             }
-        }, 300);
+        }, 500);
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
         const checkInterval = setInterval(function () {
-            $('#emailVerificationControl').addClass('none')
             if ($('#emailVerificationControl_but_change_claims').is(':visible')) {
                 const rePassword = $('.reenterPassword_li')
                 const newPassword = $('.newPassword_li')
+                $('#emailVerificationControl').addClass('none')
 
                 if(rePassword.length && newPassword.length) {
                     rePassword.show()
@@ -29,6 +29,6 @@ $(document).ready(function () {
                 }
                 clearInterval(checkInterval);
             }
-        }, 300);
+        }, 500);
     })
 });
