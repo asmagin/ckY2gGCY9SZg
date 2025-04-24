@@ -17,11 +17,10 @@ $(document).ready(function () {
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
         const checkInterval = setInterval(function () {
+            $('#emailVerificationControl').addClass('none')
             if ($('#emailVerificationControl_but_change_claims').is(':visible')) {
                 const rePassword = $('.reenterPassword_li')
                 const newPassword = $('.newPassword_li')
-                $('#emailVerificationControl').addClass('none')
-                $('#emailVerificationCode_li').addClass('none')
 
                 if(rePassword.length && newPassword.length) {
                     rePassword.show()
