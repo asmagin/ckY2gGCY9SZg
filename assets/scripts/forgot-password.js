@@ -6,10 +6,10 @@ $(document).ready(function () {
     }
 
     $('#emailVerificationControl_but_send_code').on('click', function () {
+        $('.email_li').addClass('none')
+        $('.intro').addClass('none')
         const checkInterval = setInterval(function () {
             if ($('.emailVerificationCode_li').is(':visible')) {
-                $('.email_li').hide();
-                $('.intro').hide();
                 clearInterval(checkInterval);
             }
         }, 10);
@@ -20,9 +20,8 @@ $(document).ready(function () {
             if ($('#emailVerificationControl_but_change_claims').is(':visible')) {
                 const rePassword = $('.reenterPassword_li')
                 const newPassword = $('.newPassword_li')
-
+                $('#emailVerificationControl').addClass('none')
                 if(rePassword.length && newPassword.length) {
-                    $('#emailVerificationControl').hide()
                     rePassword.show()
                     newPassword.show()
                 }
