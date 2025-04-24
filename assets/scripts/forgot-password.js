@@ -16,11 +16,12 @@ $(document).ready(function () {
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
+        $('.emailVerificationCode_li').addClass('none')
         const checkInterval = setInterval(function () {
-            $('#emailVerificationControl').addClass('none')
-            if ($('#emailVerificationControl_but_change_claims').attr('aria-hidden') === 'false') {
+            if ($('#emailVerificationControl_but_change_claims').is(':visible')) {
                 const rePassword = $('.reenterPassword_li')
                 const newPassword = $('.newPassword_li')
+                $('#emailVerificationControl').addClass('none')
 
                 if(rePassword.length && newPassword.length) {
                     rePassword.show()
