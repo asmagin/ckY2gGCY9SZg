@@ -22,9 +22,9 @@ $(document).ready(function () {
                 const newPassword = $('.newPassword_li')
 
                 if(rePassword.length && newPassword.length) {
+                    $('#emailVerificationControl').hide()
                     rePassword.show()
                     newPassword.show()
-                    $('#emailVerificationControl').hide()
                 }
                 $('#attributeVerification > .buttons').addClass('flex');
                 clearInterval(checkInterval);
