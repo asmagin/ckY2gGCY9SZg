@@ -12,7 +12,7 @@ $(document).ready(function () {
             if ($('.emailVerificationCode_li').is(':visible')) {
                 clearInterval(checkInterval);
             }
-        }, 10);
+        }, 50);
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
@@ -29,6 +29,6 @@ $(document).ready(function () {
                 }
                 clearInterval(checkInterval);
             }
-        }, 10);
+        }, 50);
     })
 });
