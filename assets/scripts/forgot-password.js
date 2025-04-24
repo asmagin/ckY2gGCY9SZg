@@ -10,7 +10,7 @@ $(document).ready(function () {
                     $('.intro').hide();
                 });
             }
-        }, 300); // Delay can be adjusted if needed
+        }, 0);
     });
 
     $('#emailVerificationControl_but_verify_code').one('click', function () {
@@ -28,6 +28,6 @@ $(document).ready(function () {
                     });
                 }
             }
-        }, 300);
+        }, 0);
     });
 });
