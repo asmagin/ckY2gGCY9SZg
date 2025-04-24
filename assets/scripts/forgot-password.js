@@ -1,34 +1,33 @@
 $(document).ready(function () {
     const isForgotPasswordPage = $('[data-name="SelfAsserted"]');
+    if (!isForgotPasswordPage.length) return;
 
-    if(!isForgotPasswordPage.length) {
-        return
-    }
-
-    $('#emailVerificationControl_but_send_code').on('click', function () {
-        const checkInterval = setInterval(function () {
+    $('#emailVerificationControl_but_send_code').one('click', function () {
+        setTimeout(() => {
             if ($('.emailVerificationCode_li').is(':visible')) {
-                $('.email_li').hide();
-                $('.intro').hide();
-                clearInterval(checkInterval);
+                requestAnimationFrame(() => {
+                    $('.email_li').hide();
+                    $('.intro').hide();
+                });
             }
-        }, 50);
+        }, 300); // Delay can be adjusted if needed
     });
 
-    $('#emailVerificationControl_but_verify_code').on('click', function () {
-        const checkInterval = setInterval(function () {
+    $('#emailVerificationControl_but_verify_code').one('click', function () {
+        setTimeout(() => {
             if ($('#emailVerificationControl_but_change_claims').is(':visible')) {
-                const rePassword = $('.reenterPassword_li')
-                const newPassword = $('.newPassword_li')
+                const rePassword = $('.reenterPassword_li');
+                const newPassword = $('.newPassword_li');
 
-                if(rePassword.length && newPassword.length) {
-                    rePassword.show()
-                    newPassword.show()
-                    $('#emailVerificationControl').hide()
+                if (rePassword.length && newPassword.length) {
+                    requestAnimationFrame(() => {
+                        rePassword.show();
+                        newPassword.show();
+                        $('#emailVerificationControl').hide();
+                        $('#attributeVerification > .buttons').addClass('flex');
+                    });
                 }
-                $('#attributeVerification > .buttons').addClass('flex');
-                clearInterval(checkInterval);
             }
-        }, 50);
-    })
+        }, 300);
+    });
 });
