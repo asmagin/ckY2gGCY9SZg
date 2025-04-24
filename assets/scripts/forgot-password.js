@@ -6,13 +6,13 @@ $(document).ready(function () {
     }
 
     $('#emailVerificationControl_but_send_code').on('click', function () {
-        $('.email_li').addClass('none')
-        $('.intro').addClass('none')
-        // const checkInterval = setInterval(function () {
-        //     if ($('.emailVerificationCode_li').is(':visible')) {
-        //         clearInterval(checkInterval);
-        //     }
-        // }, 10);
+        const checkInterval = setInterval(function () {
+            $('.email_li').addClass('none')
+            $('.intro').addClass('none')
+            if ($('.emailVerificationCode_li').is(':visible')) {
+                clearInterval(checkInterval);
+            }
+        }, 300);
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
@@ -29,6 +29,6 @@ $(document).ready(function () {
                 }
                 clearInterval(checkInterval);
             }
-        }, 10);
+        }, 300);
     })
 });
