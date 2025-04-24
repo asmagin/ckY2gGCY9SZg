@@ -8,11 +8,11 @@ $(document).ready(function () {
     $('#emailVerificationControl_but_send_code').on('click', function () {
         $('.email_li').addClass('none')
         $('.intro').addClass('none')
-        const checkInterval = setInterval(function () {
-            if ($('.emailVerificationCode_li').is(':visible')) {
-                clearInterval(checkInterval);
-            }
-        }, 10);
+        // const checkInterval = setInterval(function () {
+        //     if ($('.emailVerificationCode_li').is(':visible')) {
+        //         clearInterval(checkInterval);
+        //     }
+        // }, 10);
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', function () {
@@ -21,6 +21,8 @@ $(document).ready(function () {
                 const rePassword = $('.reenterPassword_li')
                 const newPassword = $('.newPassword_li')
                 $('#emailVerificationControl').addClass('none')
+                $('#emailVerificationCode_li').addClass('none')
+
                 if(rePassword.length && newPassword.length) {
                     rePassword.show()
                     newPassword.show()
