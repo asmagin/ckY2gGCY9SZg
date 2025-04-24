@@ -24,8 +24,8 @@ $(document).ready(function () {
                 if(rePassword.length && newPassword.length) {
                     rePassword.show()
                     newPassword.show()
+                    $('#attributeVerification > .buttons').addClass('flex');
                 }
-                $('#attributeVerification > .buttons').addClass('flex');
                 clearInterval(checkInterval);
             }
         }, 10);
