@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+error<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -12,9 +12,8 @@
           href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
           rel="stylesheet"
   />
-  <script src="https://asmagin.github.io/ckY2gGCY9SZg/assets/scripts/script.js" defer></script>
-
-  <!-- Inline Styles -->
+  <script src="https://asmagin.github.io/ckY2gGCY9SZg/assets/scripts/login.js" defer></script>
+  <script src="https://asmagin.github.io/ckY2gGCY9SZg/assets/scripts/forgot-password.js" defer></script>
   <style>
     body {
       margin: 0;
@@ -57,6 +56,18 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
+    }
+
+    .heading {
+      font-size: 1.5rem; font-weight: 400; margin: 0;
+    }
+
+    .intro {
+      color: #6b7280; margin-top: 0.25rem;
+    }
+
+    .intro p {
+      margin-top: 6px;
     }
 
     .input-wrapper {
@@ -138,18 +149,18 @@
       margin-top: 0.5rem;
     }
 
-      #api .heading h1 {
-        font-size: 1.5rem;
-        font-weight: 400;
-        margin: 0;
+    #api .heading h1{
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0;
     }
 
-      #api .intro h2 {
-        color: #6b7280;
-        margin-top: 0.25rem;
-        font-size: 1em;
-        font-weight: normal;
-        margin-block-end: 1.5em;
+    #api .intro h2{
+      color: #6b7280;
+      margin-top: 0.25rem;
+      font-size: 1em;
+      font-weight: normal;
+      margin-block-end: 1.5em;
     }
 
     #api .rememberMe {
@@ -174,33 +185,32 @@
     }
 
     #api .divider {
-        background-color: #ffea00;
-        border: 1px solid #ef4444;
-        padding: 3px;
+      display: none;
     }
 
     #api .create {
-        background-color: #ffea00;
-        border: 1px solid #ef4444;
-        padding: 3px;
+      display: none;
     }
 
     #api #forgotPassword {
-        background-color: #ffea00;
-        border: 1px solid #ef4444;
-        padding: 3px;
+      display: none;
+    }
+
+    .flex {
+      display: flex !important;
+    }
+    .none {
+      display: none !important;
     }
 
     #api form#attributeVerification > .buttons {
-        background-color: #ffea00;
-        border: 1px solid #ef4444;
-        padding: 3px;
+      display: none;
+      flex-direction: row-reverse;
+      gap: 6px;
     }
 
     #api a.helpLink.tiny {
-        background-color: #ffea00;
-        border: 1px solid #ef4444;
-        padding: 3px;
+      display: none;
     }
 
     #api div#attributeList ul {
@@ -215,12 +225,25 @@
     #api button#emailVerificationControl_but_verify_code {
       margin-bottom: 8px;
     }
+
+    #api .newPassword_li {
+      display: none;
+    }
+
+    #api .reenterPassword_li {
+      display: none;
+    }
+
   </style>
 </head>
 <body>
 <div id="opal-main">
   <header>
-        <img src="https://asmagin.github.io/ckY2gGCY9SZg/assets/images/logo.svg" alt="Logo" style="height: 1.5rem" />
+    <img
+            src="https://asmagin.github.io/ckY2gGCY9SZg/assets/images/logo.svg"
+            alt="Logo"
+            style="height: 1.5rem"
+    />
   </header>
 
   <div class="p-4">
@@ -228,7 +251,44 @@
 
     <!-- Login Box -->
     <div class="container unified_container" role="presentation">
-          <div id="api"></div>
+
+      <div id="api">
+        <!-- Email Input -->
+        <div class="input-wrapper">
+          <label for="signInName">Your email<span>*</span></label>
+          <input
+                  id="signInName"
+                  type="email"
+                  placeholder="Email"
+          />
+        </div>
+
+        <!-- Password Input -->
+        <div class="input-wrapper">
+          <label>Your password<span>*</span></label>
+          <input
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+          />
+        </div>
+
+        <!-- Login Button -->
+        <button id="next" class="btn">Log in</button>
+
+        <!-- Links -->
+        <div style="text-align: center; margin-top: 16px" class="input-wrapper">
+          <a id="forgotPassword" href="#" class="link">Forgot password?</a>
+
+          <div class="separator">
+            <hr />
+            Don’t have an account?
+            <hr />
+          </div>
+
+          <a id="createAccount" href="#" class="link">Sign up</a>
+        </div>
+      </div>
 
       <!-- Errors area -->
       <div id="error" class="error"></div>
