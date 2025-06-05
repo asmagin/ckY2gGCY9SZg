@@ -31,5 +31,13 @@ $(document).ready(function () {
                 clearInterval(checkInterval);
             }
         }, 50);
-    })
+    });
+
+    const continueButtonInterval = setInterval(() => {
+        const button = document.getElementById('continue');
+        if (button.getAttribute('aria-disabled') === 'false') {
+            button.click();
+            clearInterval(continueButtonInterval);
+        }
+    }, 100);
 });
