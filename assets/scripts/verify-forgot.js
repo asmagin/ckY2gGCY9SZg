@@ -66,7 +66,9 @@ $(document).ready(function () {
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', async function () {
+        console.log(11);
         await waitForElementVisible('#emailVerificationControl_but_change_claims');
+        console.log(22);
 
         $('.emailVerificationCode_li').addClass('none');
         const rePassword = $('.reenterPassword_li');
