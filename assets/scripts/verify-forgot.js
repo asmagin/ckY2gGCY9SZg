@@ -76,7 +76,7 @@ $(document).ready(function () {
         }
     });
 
-    // waitForButtonEnabled('continue').then(button => {
-    //     button.click();
-    // });
+    waitForButtonEnabled('continue').then(button => {
+        button.click();
+    });
 });
