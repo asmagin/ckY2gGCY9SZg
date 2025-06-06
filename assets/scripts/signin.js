@@ -1,6 +1,6 @@
 const config = {
     maxAttempts: 30,
-    checkInterval: 50, // ms
+    checkInterval: 10, // ms
     defaultHeading: "WELCOME BACK!",
     separatorText: "Don't have an account?"
 };
