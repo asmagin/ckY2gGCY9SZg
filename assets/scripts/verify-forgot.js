@@ -54,11 +54,10 @@ $(document).ready(function () {
         });
     }
 
-    $('#emailVerificationControl_but_send_code').on('click', function () {
+    $('#emailVerificationControl_but_send_code').on('click', async function () {
+        await waitForElementVisible('.emailVerificationCode_li');
         $('.email_li').addClass('none');
         $('.intro').addClass('none');
-
-        waitForElementVisible('.emailVerificationCode_li');
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', async function () {
