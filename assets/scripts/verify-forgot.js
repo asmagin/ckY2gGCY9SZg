@@ -56,13 +56,12 @@ $(document).ready(function () {
 
     $('#emailVerificationControl_but_send_code').on('click', async function () {
         console.log(1);
-        await waitForElementVisible('.emailVerificationCode_li').then( ()=> {
-            console.log(2);
-            $('.email_li').addClass('none');
-            console.log(3);
-            $('.intro').addClass('none');
-            console.log(4);
-        });
+        await waitForElementVisible('.verificationCode_li');
+        console.log(2);
+        $('.email_li').addClass('none');
+        console.log(3);
+        $('.intro').addClass('none');
+        console.log(4);
     });
 
     $('#emailVerificationControl_but_verify_code').on('click', async function () {
