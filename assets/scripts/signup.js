@@ -58,6 +58,7 @@ $(document).ready(function () {
 
     // Handle send code button click
     $(SELECTORS.sendCodeButton).on('click', function () {
+        console.log({aaa: 1})
         waitForElementVisible(
             SELECTORS.verificationCodeField,
             function() {
@@ -65,6 +66,8 @@ $(document).ready(function () {
                 $(SELECTORS.introText).hide();
             }
         );
+
+        console.log({ bbbb: 2})
     });
 
     // Handle verify code button click
