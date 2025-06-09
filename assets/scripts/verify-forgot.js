@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    window.CONTENT.verifying_blurb = "";
+
     const isForgotPasswordPage = $('[data-name="SelfAsserted"]');
 
     if (!isForgotPasswordPage.length) {
@@ -82,6 +84,7 @@ $(document).ready(function () {
     });
 
     waitForButtonEnabled('continue').then(button => {
-        // button.click();
+        button.click();
+        $('.verifying_blurb').addClass('working')
     });
 });
