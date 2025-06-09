@@ -85,8 +85,8 @@ $(document).ready(function () {
 
     waitForButtonEnabled(SELECTORS.continueButton).then(button => {
         $(SELECTORS.verifyingBlurb).addClass('working');
-        setTimeout(() => {
-            button.click();
-        }, 0);
+        // setTimeout(() => {
+        //     button.click();
+        // }, 0);
     });
 });
