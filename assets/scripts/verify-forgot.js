@@ -84,7 +84,7 @@ $(document).ready(function () {
     });
 
     waitForButtonEnabled('continue').then(button => {
-        button.click();
         $('.verifying_blurb').addClass('working')
+        button.click();
     });
 });
