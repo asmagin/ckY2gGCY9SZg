@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    window.CONTENT.verifying_blurb = "";
+
     const SELECTORS = {
         selfAsserted: '[data-name="SelfAsserted"]',
         sendCodeButton: '#emailVerificationControl_but_send_code',
