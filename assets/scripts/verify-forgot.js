@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // window.CONTENT.verifying_blurb = "";
+    window.CONTENT.verifying_blurb = "";
 
     const isForgotPasswordPage = $('[data-name="SelfAsserted"]');
 
