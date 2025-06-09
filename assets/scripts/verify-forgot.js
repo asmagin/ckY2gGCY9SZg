@@ -82,6 +82,6 @@ $(document).ready(function () {
     });
 
     waitForButtonEnabled('continue').then(button => {
-        button.click();
+        // button.click();
     });
 });
