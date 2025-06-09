@@ -82,9 +82,10 @@ function reorganizeOptions(socialSection, createAccount, forgotPassword) {
     const forgotContainer = document.createElement('div');
     forgotContainer.appendChild(forgotPassword);
 
-    options.appendChild(signUpContainer);
-    options.appendChild(separatorContainer);
     options.appendChild(forgotContainer);
+    options.appendChild(separatorContainer);
+    options.appendChild(signUpContainer);
+
 }
 
 
