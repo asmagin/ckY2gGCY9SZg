@@ -80,7 +80,6 @@ $(document).ready(function () {
 
         $(SELECTORS.verificationCodeLi).addClass('none');
         $(SELECTORS.verificationControl).addClass('none');
-        $(SELECTORS.verificationButtons).addClass('flex');
     });
 
     waitForButtonEnabled(SELECTORS.continueButton).then(button => {
