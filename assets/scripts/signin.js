@@ -85,6 +85,7 @@ function reorganizeOptions(socialSection, createAccount, forgotPassword) {
     options.appendChild(forgotContainer);
     options.appendChild(separatorContainer);
     options.appendChild(signUpContainer);
+    options.css('display', 'block');
 
 }
 
