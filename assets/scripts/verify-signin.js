@@ -1,11 +1,6 @@
 $(document).ready(function () {
     window.CONTENT.verifying_blurb = "";
 
-    const isForgotPasswordPage = $('[data-name="SelfAsserted"]');
-
-    if (!isForgotPasswordPage.length) {
-        return;
-    }
 
     function waitForElementVisible(selector) {
         return new Promise(resolve => {
