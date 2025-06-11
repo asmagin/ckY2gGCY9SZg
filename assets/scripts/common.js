@@ -3,9 +3,9 @@ function addEyeIconIntoPasswordField() {
     if (!passwordInput) return;
 
     const entryItem = passwordInput.closest('.entry-item');
-    const attrItem = passwordInput.closest('.entry-item');
+    const attrEntry = passwordInput.closest('.attrEntry');
 
-    const wrapperItem = entryItem || attrItem;
+    const wrapperItem = entryItem || attrEntry;
 
     if (!wrapperItem) return;
 
