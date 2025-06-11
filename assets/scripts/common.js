@@ -31,10 +31,12 @@ function addEyeIconIntoPasswordField() {
         eyeIcon.style.fontSize = '16px';
         eyeIcon.style.zIndex = '2';
 
+        let visible = false;
         eyeIcon.addEventListener('click', () => {
+            visible = !visible;
             const isHidden = passwordInput.type === 'password';
             passwordInput.type = isHidden ? 'text' : 'password';
-            eyeIcon.textContent = isHidden ? '🙈' : '👁️';
+            eyeIcon.className = visible ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
         });
 
         wrapper.appendChild(eyeIcon);
