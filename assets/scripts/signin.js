@@ -1,7 +1,7 @@
 const config = {
     maxAttempts: 30,
     checkInterval: 10, // ms
-    defaultHeading: "WELCOME BACK!",
+    // defaultHeading: "WELCOME BACK!",
     separatorText: "Don't have an account?"
 };
 
@@ -22,7 +22,7 @@ function waitForElements() {
                 socialSection: document.querySelector('.claims-provider-list-buttons.social')
             };
 
-            const requiredElements = ['forgotPassword', 'createAccount', 'form', 'isLoginPage', 'heading', 'socialSection'];
+            const requiredElements = ['forgotPassword', 'createAccount', 'form', 'isLoginPage', /*'heading', 'socialSection'*/];
             const allElementsFound = requiredElements.every(key => elements[key]);
 
             if (allElementsFound) {
@@ -102,7 +102,7 @@ async function reorganizeLoginPage() {
     try {
         const elements = await waitForElements();
 
-        updateHeading(elements.heading);
+        // updateHeading(elements.heading);
         removeDivider(elements.divider);
         styleAuthLinks(elements.forgotPassword, elements.createAccount);
         moveSocialSection(elements.form, elements.socialSection);
