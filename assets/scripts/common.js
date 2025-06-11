@@ -1,44 +1,48 @@
 function addEyeIconIntoPasswordField() {
-    const passwordInput = document.querySelector('input[type="password"]');
-    if (!passwordInput) return;
+    const passwordInputs = document.querySelectorAll('input[type="password"]');
 
-    const entryItem = passwordInput.closest('.entry-item');
-    const attrEntry = passwordInput.closest('.attrEntry');
+    passwordInputs.forEach((passwordInput) => {
+        if (passwordInput.dataset.eyeAttached) return;
 
-    const wrapperItem = entryItem || attrEntry;
+        const entryItem = passwordInput.closest('.entry-item');
+        const attrEntry = passwordInput.closest('.attrEntry');
+        const wrapperItem = entryItem || attrEntry;
 
-    if (!wrapperItem) return;
+        if (!wrapperItem) return;
 
-    const wrapper = document.createElement('div');
-    wrapper.style.position = 'relative';
-    wrapper.style.display = 'inline-block';
-    wrapper.style.width = '100%';
+        const wrapper = document.createElement('div');
+        wrapper.style.position = 'relative';
+        wrapper.style.display = 'inline-block';
+        wrapper.style.width = '100%';
 
-    passwordInput.parentNode.insertBefore(wrapper, passwordInput);
-    wrapper.appendChild(passwordInput);
+        passwordInput.parentNode.insertBefore(wrapper, passwordInput);
+        wrapper.appendChild(passwordInput);
 
+        passwordInput.style.paddingRight = '30px';
 
-    passwordInput.style.paddingRight = '30px';
+        const eyeIcon = document.createElement('span');
+        eyeIcon.textContent = '👁️';
+        eyeIcon.style.position = 'absolute';
+        eyeIcon.style.right = '10px';
+        eyeIcon.style.top = '50%';
+        eyeIcon.style.transform = 'translateY(-50%)';
+        eyeIcon.style.cursor = 'pointer';
+        eyeIcon.style.userSelect = 'none';
+        eyeIcon.style.fontSize = '16px';
+        eyeIcon.style.zIndex = '2';
 
-    const eyeIcon = document.createElement('span');
-    eyeIcon.textContent = '👁️';
-    eyeIcon.style.position = 'absolute';
-    eyeIcon.style.right = '10px';
-    eyeIcon.style.top = '50%';
-    eyeIcon.style.transform = 'translateY(-50%)';
-    eyeIcon.style.cursor = 'pointer';
-    eyeIcon.style.userSelect = 'none';
-    eyeIcon.style.fontSize = '16px';
-    eyeIcon.style.zIndex = '2';
+        eyeIcon.addEventListener('click', () => {
+            const isHidden = passwordInput.type === 'password';
+            passwordInput.type = isHidden ? 'text' : 'password';
+            eyeIcon.textContent = isHidden ? '🙈' : '👁️';
+        });
 
-    eyeIcon.addEventListener('click', () => {
-        const isHidden = passwordInput.type === 'password';
-        passwordInput.type = isHidden ? 'text' : 'password';
-        eyeIcon.textContent = isHidden ? '🙈' : '👁️';
+        wrapper.appendChild(eyeIcon);
+
+        passwordInput.dataset.eyeAttached = 'true';
     });
-
-    wrapper.appendChild(eyeIcon);
 }
+
 
 $(document).ready(function () {
     addEyeIconIntoPasswordField()
