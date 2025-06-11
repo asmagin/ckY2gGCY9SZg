@@ -3,7 +3,11 @@ function addEyeIconIntoPasswordField() {
     if (!passwordInput) return;
 
     const entryItem = passwordInput.closest('.entry-item');
-    if (!entryItem) return;
+    const attrItem = passwordInput.closest('.entry-item');
+
+    const wrapperItem = entryItem || attrItem;
+
+    if (!wrapperItem) return;
 
     const wrapper = document.createElement('div');
     wrapper.style.position = 'relative';
