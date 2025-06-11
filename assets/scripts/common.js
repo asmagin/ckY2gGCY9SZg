@@ -8,6 +8,7 @@ function addEyeIconIntoPasswordField() {
 
         if ($wrapperItem.length === 0) return;
 
+        $wrapperItem.css('position', 'relative');
 
         $passwordInput.css('paddingRight', '36px');
 
@@ -17,7 +18,7 @@ function addEyeIconIntoPasswordField() {
         }).css({
             position: 'absolute',
             right: '10px',
-            top: '50%',
+            top: '66%',
             transform: 'translateY(-50%)',
             cursor: 'pointer',
             width: '20px',
