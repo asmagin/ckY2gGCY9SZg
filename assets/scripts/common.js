@@ -21,7 +21,7 @@ function addEyeIconIntoPasswordField() {
         passwordInput.style.paddingRight = '30px';
 
         const eyeIcon = document.createElement('span');
-        eyeIcon.className = 'fa-solid fa-eye';
+        eyeIcon.textContent = '👁️';
         eyeIcon.style.position = 'absolute';
         eyeIcon.style.right = '10px';
         eyeIcon.style.top = '50%';
@@ -31,12 +31,10 @@ function addEyeIconIntoPasswordField() {
         eyeIcon.style.fontSize = '16px';
         eyeIcon.style.zIndex = '2';
 
-        let visible = false;
         eyeIcon.addEventListener('click', () => {
-            visible = !visible;
             const isHidden = passwordInput.type === 'password';
             passwordInput.type = isHidden ? 'text' : 'password';
-            eyeIcon.className = visible ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+            eyeIcon.textContent = isHidden ? '🙈' : '👁️';
         });
 
         wrapper.appendChild(eyeIcon);
