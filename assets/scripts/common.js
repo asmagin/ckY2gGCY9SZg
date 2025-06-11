@@ -49,7 +49,34 @@ function addEyeIconIntoPasswordField() {
     });
 }
 
+function waitForElementVisible(selector) {
+    return new Promise(resolve => {
+        if ($(selector).is(':visible')) {
+            resolve();
+            return;
+        }
 
-$(document).ready(function () {
+        const observer = new MutationObserver((mutations, obs) => {
+            if ($(selector).is(':visible')) {
+                obs.disconnect();
+                resolve();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['style', 'class']
+        });
+    });
+}
+
+$(document).ready(async function () {
+    console.log(1)
+    await waitForElementVisible('input[type="password"]')
+    console.log(2)
+
     addEyeIconIntoPasswordField()
+    console.log(3)
 })
