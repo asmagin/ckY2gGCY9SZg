@@ -1,45 +1,51 @@
 function addEyeIconIntoPasswordField() {
-    const passwordInputs = document.querySelectorAll('input[type="password"]');
+    $('input[type="password"]').each(function() {
+        const $passwordInput = $(this);
 
-    passwordInputs.forEach((passwordInput) => {
-        if (passwordInput.dataset.eyeAttached) return;
+        if ($passwordInput.data('eyeAttached')) return;
 
-        const entryItem = passwordInput.closest('.entry-item');
-        const attrEntry = passwordInput.closest('.attrEntry');
-        const wrapperItem = entryItem || attrEntry;
+        const $wrapperItem = $passwordInput.closest('.entry-item, .attrEntry');
 
-        if (!wrapperItem) return;
+        if ($wrapperItem.length === 0) return;
 
-        const wrapper = document.createElement('div');
-        wrapper.style.position = 'relative';
-        wrapper.style.display = 'inline-block';
-        wrapper.style.width = '100%';
-
-        passwordInput.parentNode.insertBefore(wrapper, passwordInput);
-        wrapper.appendChild(passwordInput);
-
-        passwordInput.style.paddingRight = '30px';
-
-        const eyeIcon = document.createElement('span');
-        eyeIcon.textContent = '👁️';
-        eyeIcon.style.position = 'absolute';
-        eyeIcon.style.right = '10px';
-        eyeIcon.style.top = '50%';
-        eyeIcon.style.transform = 'translateY(-50%)';
-        eyeIcon.style.cursor = 'pointer';
-        eyeIcon.style.userSelect = 'none';
-        eyeIcon.style.fontSize = '16px';
-        eyeIcon.style.zIndex = '2';
-
-        eyeIcon.addEventListener('click', () => {
-            const isHidden = passwordInput.type === 'password';
-            passwordInput.type = isHidden ? 'text' : 'password';
-            eyeIcon.textContent = isHidden ? '🙈' : '👁️';
+        const $wrapper = $('<div>').css({
+            position: 'relative',
+            display: 'inline-block',
+            width: '100%'
         });
 
-        wrapper.appendChild(eyeIcon);
+        $passwordInput.before($wrapper);
+        $wrapper.append($passwordInput);
 
-        passwordInput.dataset.eyeAttached = 'true';
+        $passwordInput.css('paddingRight', '36px');
+
+        const $eyeIcon = $('<img>', {
+            src: 'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye.svg',
+            alt: 'Toggle visibility'
+        }).css({
+            position: 'absolute',
+            right: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            cursor: 'pointer',
+            width: '20px',
+            height: '20px',
+            zIndex: '2'
+        });
+
+        let visible = false;
+
+        $eyeIcon.on('click', function() {
+            visible = !visible;
+            $passwordInput.attr('type', visible ? 'text' : 'password');
+            $eyeIcon.attr('src', visible ? 
+                'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye-off.svg' : 
+                'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye.svg'
+            );
+        });
+
+        $wrapper.append($eyeIcon);
+        $passwordInput.data('eyeAttached', 'true');
     });
 }
 
