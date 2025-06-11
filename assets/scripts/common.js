@@ -18,7 +18,7 @@ function addEyeIconIntoPasswordField() {
         }).css({
             position: 'absolute',
             right: '10px',
-            bottom: '5px%',
+            bottom: '5px',
             transform: 'translateY(-50%)',
             cursor: 'pointer',
             width: '20px',
