@@ -97,12 +97,42 @@ function removeSocialIntro(socialSection) {
     }
 }
 
+function addEyeIconIntoPasswordField() {
+    const passwordInput = document.querySelector('input[type="password"]');
+
+    if (!passwordInput) return
+
+
+    const parent = passwordInput.closest('.entry-field');
+    if (parent) parent.style.position = 'relative';
+
+    const eyeIcon = document.createElement('span');
+    eyeIcon.textContent = '👁️';
+    eyeIcon.style.position = 'absolute';
+    eyeIcon.style.right = '10px';
+    eyeIcon.style.top = '50%';
+    eyeIcon.style.transform = 'translateY(-50%)';
+    eyeIcon.style.cursor = 'pointer';
+    eyeIcon.style.userSelect = 'none';
+    eyeIcon.style.fontSize = '16px';
+    eyeIcon.style.zIndex = '2';
+
+    eyeIcon.addEventListener('click', () => {
+        const isHidden = passwordInput.type === 'password';
+        passwordInput.type = isHidden ? 'text' : 'password';
+        eyeIcon.textContent = isHidden ? '🙈' : '👁️';
+    });
+
+    parent.appendChild(eyeIcon);
+}
+
 
 async function reorganizeLoginPage() {
     try {
         const elements = await waitForElements();
 
         // updateHeading(elements.heading);
+        addEyeIconIntoPasswordField()
         removeDivider(elements.divider);
         styleAuthLinks(elements.forgotPassword, elements.createAccount);
         moveSocialSection(elements.form, elements.socialSection);
