@@ -8,14 +8,6 @@ function addEyeIconIntoPasswordField() {
 
         if ($wrapperItem.length === 0) return;
 
-        const $wrapper = $('<div>').css({
-            position: 'relative',
-            display: 'inline-block',
-            width: '100%'
-        });
-
-        $passwordInput.before($wrapper);
-        $wrapper.append($passwordInput);
 
         $passwordInput.css('paddingRight', '36px');
 
@@ -44,7 +36,7 @@ function addEyeIconIntoPasswordField() {
             );
         });
 
-        $wrapper.append($eyeIcon);
+        $wrapperItem.append($eyeIcon);
         $passwordInput.data('eyeAttached', 'true');
     });
 }
