@@ -103,7 +103,7 @@ function addEyeIconIntoPasswordField() {
     if (!passwordInput) return
 
 
-    const parent = passwordInput.closest('.entry-field');
+    const parent = passwordInput.closest('.entry-item');
     if (parent) parent.style.position = 'relative';
 
     const eyeIcon = document.createElement('span');
