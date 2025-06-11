@@ -21,7 +21,7 @@ function addEyeIconIntoPasswordField() {
         passwordInput.style.paddingRight = '30px';
 
         const eyeIcon = document.createElement('span');
-        eyeIcon.textContent = '';
+        eyeIcon.className = 'fa-solid fa-eye';
         eyeIcon.style.position = 'absolute';
         eyeIcon.style.right = '10px';
         eyeIcon.style.top = '50%';
