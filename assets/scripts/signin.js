@@ -99,12 +99,21 @@ function removeSocialIntro(socialSection) {
 
 function addEyeIconIntoPasswordField() {
     const passwordInput = document.querySelector('input[type="password"]');
+    if (!passwordInput) return;
 
-    if (!passwordInput) return
+    const entryItem = passwordInput.closest('.entry-item');
+    if (!entryItem) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    wrapper.style.display = 'inline-block';
+    wrapper.style.width = '100%';
+
+    passwordInput.parentNode.insertBefore(wrapper, passwordInput);
+    wrapper.appendChild(passwordInput);
 
 
-    const parent = passwordInput.closest('.entry-item');
-    if (parent) parent.style.position = 'relative';
+    passwordInput.style.paddingRight = '30px';
 
     const eyeIcon = document.createElement('span');
     eyeIcon.textContent = '👁️';
@@ -123,7 +132,7 @@ function addEyeIconIntoPasswordField() {
         eyeIcon.textContent = isHidden ? '🙈' : '👁️';
     });
 
-    parent.appendChild(eyeIcon);
+    wrapper.appendChild(eyeIcon);
 }
 
 
