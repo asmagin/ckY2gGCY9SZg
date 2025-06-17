@@ -100,12 +100,18 @@ function removeSocialIntro(socialSection) {
 
 
 async function setupNextButtonHandler() {
-    document.getElementById('next').addEventListener('click', function () {
+    const nextButton = document.getElementById('next');
+    nextButton.addEventListener('click', function () {
         const workingElements = document.querySelectorAll('.working');
 
         workingElements.forEach(element => {
             if (element.style.display === 'block') {
-                element.classList.add('spinner');
+                nextButton.textContent = '';
+
+                const spinnerElement = document.createElement('p');
+                spinnerElement.className = 'spinner';
+
+                nextButton.appendChild(spinnerElement);
             }
         });
     });
