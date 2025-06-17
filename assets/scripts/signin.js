@@ -103,29 +103,6 @@ async function setupNextButtonHandler() {
     const nextButton = document.getElementById('next');
     const nextButtonText = nextButton.textContent.trim();
 
-    function restoreButton() {
-        const spinner = nextButton.querySelector('.spinner');
-        if (spinner) {
-            spinner.remove();
-        }
-
-        nextButton.textContent = nextButtonText;
-    }
-
-    const observer = new MutationObserver((mutations) => {
-        const pageLevelElement = document.querySelector('.pageLevel');
-        if (pageLevelElement && window.getComputedStyle(pageLevelElement).display === 'block') {
-            restoreButton();
-        }
-    });
-
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['style', 'class']
-    });
-
     nextButton.addEventListener('click', function () {
         const workingElements = document.querySelectorAll('.working');
 
