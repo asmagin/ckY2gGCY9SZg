@@ -104,7 +104,7 @@ async function setupNextButtonHandler() {
         const workingElements = document.querySelectorAll('.working');
 
         workingElements.forEach(element => {
-            if (window.getComputedStyle(element).display === 'block') {
+            if (element.style.display === 'block') {
                 element.classList.add('spinner');
             }
         });
