@@ -98,6 +98,31 @@ function removeSocialIntro(socialSection) {
 }
 
 
+// Function to wait for the #next button to be visible
+function waitForNextButtonVisible() {
+    return new Promise(resolve => {
+        if (document.getElementById('next')) {
+            resolve();
+            return;
+        }
+
+        const observer = new MutationObserver((mutations, obs) => {
+            if (document.getElementById('next')) {
+                obs.disconnect();
+                resolve();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['style', 'class']
+        });
+    });
+}
+
+
 async function reorganizeLoginPage() {
     try {
         const elements = await waitForElements();
@@ -114,4 +139,34 @@ async function reorganizeLoginPage() {
     }
 }
 
+
+// Function to handle the #next button click
+async function setupNextButtonHandler() {
+    try {
+        // Wait for the #next button to be available
+        await waitForNextButtonVisible();
+        
+        // Add click event listener to the #next button
+        document.getElementById('next').addEventListener('click', function() {
+            // Check if any element with .working class has display:block
+            const workingElements = document.querySelectorAll('.working');
+            
+            workingElements.forEach(element => {
+                // Check if the element has display:block style
+                if (window.getComputedStyle(element).display === 'block') {
+                    // Add the spinner class
+                    element.classList.add('spinner');
+                }
+            });
+        });
+        
+        console.log('Next button handler set up successfully');
+    } catch (error) {
+        console.warn('Failed to set up next button handler:', error.message);
+    }
+}
+
+
+// Initialize the page
 reorganizeLoginPage();
+setupNextButtonHandler();
