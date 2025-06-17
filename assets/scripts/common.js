@@ -13,7 +13,7 @@ function addEyeIconIntoPasswordField() {
         $passwordInput.css('paddingRight', '36px');
 
         const $eyeIcon = $('<img>', {
-            src: 'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye.svg',
+            src: 'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye-off.svg',
             alt: 'Toggle visibility'
         }).css({
             position: 'absolute',
@@ -66,10 +66,6 @@ function waitForElementVisible(selector) {
 }
 
 $(document).ready(async function () {
-    console.log(1)
     await waitForElementVisible('input[type="password"]')
-    console.log(2)
-
     addEyeIconIntoPasswordField()
-    console.log(3)
 })
