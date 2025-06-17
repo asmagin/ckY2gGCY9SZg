@@ -32,8 +32,8 @@ function addEyeIconIntoPasswordField() {
             visible = !visible;
             $passwordInput.attr('type', visible ? 'text' : 'password');
             $eyeIcon.attr('src', visible ? 
-                'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye-off.svg' : 
-                'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye.svg'
+                'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye.svg' :
+                'https://asmagin.github.io/ckY2gGCY9SZg/assets/images/eye-off.svg'
             );
         });
 
