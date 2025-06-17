@@ -39,6 +39,34 @@ function waitForElements() {
     });
 }
 
+function waitForElementDisplayBlock(selector) {
+    return new Promise(resolve => {
+        const isDisplayBlock = () => {
+            const el = document.querySelector(selector);
+            return el && el.style.display === 'block';
+        };
+
+        if (isDisplayBlock()) {
+            resolve();
+            return;
+        }
+
+        const observer = new MutationObserver((mutations, obs) => {
+            if (isDisplayBlock()) {
+                obs.disconnect();
+                resolve();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['style', 'class']
+        });
+    });
+}
+
 
 function updateHeading(heading) {
     heading.innerHTML = window.CONTENT?.social_intro || config.defaultHeading;
@@ -106,7 +134,7 @@ async function setupNextButtonHandler() {
     nextButton.addEventListener('click', function () {
         const workingElements = document.querySelectorAll('.working');
 
-        workingElements.forEach(element => {
+        workingElements.forEach(async element => {
             if (element.style.display === 'block') {
                 nextButton.textContent = '';
 
@@ -114,6 +142,10 @@ async function setupNextButtonHandler() {
                 spinnerElement.className = 'spinner';
 
                 nextButton.appendChild(spinnerElement);
+
+                await waitForElementDisplayBlock('.pageLevel');
+                nextButton.textContent = nextButtonText;
+                spinnerElement.remove();
             }
         });
     });
