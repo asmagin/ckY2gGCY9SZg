@@ -79,11 +79,10 @@ $(document).ready(function () {
         }, 0)
     });
 
-    waitForElementVisible('#emailVerificationControl_but_send_code').then(button => {
-        console.log('aaaaa', button)
+    waitForElementVisible('#emailVerificationControl_but_send_code').then(() => {
         $('#verifying_blurb').addClass('working')
         setTimeout(() => {
-            button.click()
+            $('#emailVerificationControl_but_send_code').click()
         }, 0)
     })
 });
