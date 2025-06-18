@@ -80,8 +80,6 @@ $(document).ready(function () {
     });
 
     waitForElementVisible('#emailVerificationControl_but_send_code').then(() => {
-        setTimeout(() => {
-            $('#emailVerificationControl_but_send_code').click()
-        }, 0)
+        $('#emailVerificationControl_but_send_code').click()
     })
 });
