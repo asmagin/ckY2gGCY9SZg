@@ -58,6 +58,12 @@ $(document).ready(function () {
 
     $('#emailVerificationControl_but_send_code').on('click', async function () {
         await waitForElementVisible('.verificationCode_li');
+
+        const introMessage = window?.SA_FIELDS.AttributeFields[0]?.DISPLAY_CONTROL_CONTENT?.intro_msg
+        if(introMessage) {
+            $('h1').text(introMessage)
+        }
+
         $('.email_li').addClass('none');
         $('.intro').addClass('none');
     });
