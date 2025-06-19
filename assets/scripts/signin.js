@@ -5,6 +5,22 @@ const config = {
     separatorText: "Don't have an account?"
 };
 
+function addRequiredSign()  {
+    window.SA_FIELDS.AttributeFields.forEach((block) => {
+        if(block.ID === 'password') {
+            const passwordField = $('[for="password"]')
+            passwordField.text(passwordField.text() + '*');
+            return;
+        }
+
+        if(block.ID === 'signInName'){
+            const signInNameField = $('[for="signInName"]')
+            signInNameField.text(signInNameField.text() + '*');
+            return;
+        }
+    })
+}
+
 
 function waitForElements() {
     return new Promise((resolve, reject) => {
@@ -155,7 +171,7 @@ async function setupNextButtonHandler() {
 async function reorganizeLoginPage() {
     try {
         const elements = await waitForElements();
-
+        addRequiredSign()
         removeDivider(elements.divider);
         styleAuthLinks(elements.forgotPassword, elements.createAccount);
         moveSocialSection(elements.form, elements.socialSection);
