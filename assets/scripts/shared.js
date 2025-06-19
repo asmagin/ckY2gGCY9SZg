@@ -1,6 +1,8 @@
 function addRequiredSign()  {
-    window.SA_FIELDS.AttributeFields.forEach((fields) => {
-        fields.DISPLAY_FIELDS.forEach((field) => {
+    window.SA_FIELDS.AttributeFields.forEach((block) => {
+        const fields = block?.DISPLAY_FIELDS || [block];
+
+        fields.forEach((field) => {
             if(!field.IS_REQ) return;
 
             const fieldLabel = $(`#${field.ID}_label`);
