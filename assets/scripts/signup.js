@@ -73,6 +73,12 @@ $(document).ready(function () {
 
     $(SELECTORS.sendCodeButton).on('click', async function () {
         await waitForElementVisible(SELECTORS.verificationCodeField);
+
+        const introMessage = window?.SA_FIELDS.AttributeFields[0]?.DISPLAY_CONTROL_CONTENT?.intro_msg
+        if(introMessage) {
+            $('#api h1').text(introMessage)
+        }
+
         $(SELECTORS.emailField).addClass('none');
         $(SELECTORS.introText).addClass('none');
     });
