@@ -1,0 +1,75 @@
+:root{
+    --ctl-bg: #fff;
+    --ctl-border: #d1d5db; /* gray-300 */
+    --ctl-border-hover: #9ca3af; /* gray-400 */
+    --ctl-ring: #2F7D92;
+    --ctl-fill: #2F7D92;
+    --ctl-check: #fff;
+}
+
+input[type=checkbox], input[type=radio] {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    margin: 0;
+    display: inline-grid;
+    place-content: center;
+    vertical-align: middle;
+    background-color: var(--ctl-bg);
+    border: 1.5px solid var(--ctl-border);
+    transition: border-color .15s, box-shadow .15s, background-color .15s;
+}
+
+/* Focus ring */
+input[type=checkbox]:focus-visible, input[type=radio]:focus-visible {
+    box-shadow:
+            0 0 0 2px #fff,               /* ring-offset on light bg */
+            0 0 0 4px var(--ctl-ring);    /* ring color */
+    border-color: var(--ctl-ring);
+}
+
+/* Hover */
+input[type=checkbox]:hover, input[type=radio]:hover { border-color: var(--ctl-border-hover); }
+
+/* Disabled */
+input[type=checkbox]:disabled, input[type=radio]:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ---------- Checkbox ---------- */
+input[type=checkbox] {
+    width: 1rem; height: 1rem;      /* 16px */
+    border-radius: .25rem;          /* rounded */
+}
+
+/* Draw the checkmark when checked (SVG background) */
+input[type=checkbox]:checked {
+    background-color: var(--ctl-fill);
+    border-color: var(--ctl-fill);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px 12px;
+}
+
+/* Indeterminate state */
+input[type=checkbox]:indeterminate {
+    background-color: var(--ctl-fill);
+    border-color: var(--ctl-fill);
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 10px 2px;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--ctl-check);
+}
+
+/* ---------- Radio ---------- */
+input[type=radio] {
+    width: 1rem; height: 1rem;
+    border-radius: 9999px;          /* fully rounded */
+}
+
+
+input[type=radio]:checked {
+    border-color: var(--ctl-fill);
+    background:
+            radial-gradient(circle at 50% 50%, transparent 30%,  var(--ctl-fill) 45%);
+}
