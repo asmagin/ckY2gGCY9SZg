@@ -40,7 +40,7 @@ function waitForElements() {
                 next: document.getElementById('next')
             };
 
-            const requiredElements = ['forgotPassword', 'passwordlessExchange', 'createAccount', 'form', 'isLoginPage', 'next'];
+            const requiredElements = ['forgotPassword', 'createAccount', 'form', 'isLoginPage', 'next'];
             const allElementsFound = requiredElements.every(key => elements[key]);
 
             if (allElementsFound) {
