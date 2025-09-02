@@ -175,7 +175,7 @@ async function reorganizeLoginPage() {
         removeDivider(elements.divider);
         styleAuthLinks(elements.forgotPassword, elements.createAccount);
         moveSocialSection(elements.form, elements.socialSection);
-        reorganizeOptions(elements.socialSection, elements.createAccount, elements.forgotPassword);
+        // reorganizeOptions(elements.socialSection, elements.createAccount, elements.forgotPassword);
         removeSocialIntro(elements.socialSection);
         setupNextButtonHandler()
 
