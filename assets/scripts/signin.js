@@ -30,6 +30,7 @@ function waitForElements() {
 
             const elements = {
                 forgotPassword: document.getElementById('ForgotPasswordExchange'),
+                passwordlessExchange: document.getElementById('PasswordlessExchange'),
                 createAccount: document.getElementById('SignUpExchange'),
                 form: document.getElementById('localAccountForm'),
                 isLoginPage: document.querySelector('#api.signIn'),
@@ -39,7 +40,7 @@ function waitForElements() {
                 next: document.getElementById('next')
             };
 
-            const requiredElements = ['forgotPassword', 'createAccount', 'form', 'isLoginPage', 'next'];
+            const requiredElements = ['forgotPassword', 'passwordlessExchange', 'createAccount', 'form', 'isLoginPage', 'next'];
             const allElementsFound = requiredElements.every(key => elements[key]);
 
             if (allElementsFound) {
@@ -107,12 +108,15 @@ function moveSocialSection(form, socialSection) {
 }
 
 
-function reorganizeOptions(socialSection, createAccount, forgotPassword) {
+function reorganizeOptions(socialSection, createAccount, forgotPassword, passwordlessExchange) {
     const options = socialSection.querySelector('.options');
     if (!options) return;
 
 
     options.innerHTML = '';
+
+    const passwordlessContainer = document.createElement('div');
+    passwordlessContainer.appendChild(passwordlessExchange);
 
 
     const signUpContainer = document.createElement('div');
@@ -127,6 +131,7 @@ function reorganizeOptions(socialSection, createAccount, forgotPassword) {
     const forgotContainer = document.createElement('div');
     forgotContainer.appendChild(forgotPassword);
 
+    options.appendChild(passwordlessContainer);
     options.appendChild(forgotContainer);
     options.appendChild(separatorContainer);
     options.appendChild(signUpContainer);
@@ -175,7 +180,7 @@ async function reorganizeLoginPage() {
         removeDivider(elements.divider);
         styleAuthLinks(elements.forgotPassword, elements.createAccount);
         moveSocialSection(elements.form, elements.socialSection);
-        // reorganizeOptions(elements.socialSection, elements.createAccount, elements.forgotPassword);
+        reorganizeOptions(elements.socialSection, elements.createAccount, elements.forgotPassword, elements.passwordlessExchange);
         removeSocialIntro(elements.socialSection);
         setupNextButtonHandler()
 
