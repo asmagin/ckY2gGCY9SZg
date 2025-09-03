@@ -115,8 +115,6 @@ function reorganizeOptions(socialSection, createAccount, forgotPassword, passwor
 
     options.innerHTML = '';
 
-    const passwordlessContainer = document.createElement('div');
-    passwordlessContainer.appendChild(passwordlessExchange);
 
 
     const signUpContainer = document.createElement('div');
@@ -131,7 +129,12 @@ function reorganizeOptions(socialSection, createAccount, forgotPassword, passwor
     const forgotContainer = document.createElement('div');
     forgotContainer.appendChild(forgotPassword);
 
-    options.appendChild(passwordlessContainer);
+    if(passwordlessExchange){
+        const passwordlessContainer = document.createElement('div');
+        passwordlessContainer.appendChild(passwordlessExchange);
+        options.appendChild(passwordlessContainer);
+    }
+
     options.appendChild(forgotContainer);
     options.appendChild(separatorContainer);
     options.appendChild(signUpContainer);
