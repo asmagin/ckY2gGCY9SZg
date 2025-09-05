@@ -58,6 +58,7 @@ $(document).ready(function () {
 
     $('#phoneVerificationControl_but_send_code').on('click', async function () {
         await waitForElementVisible('.verificationCode_li');
+        console.log({afterClickSendCode: 'code sent'})
 
         const introMessage = window?.SA_FIELDS.AttributeFields[0]?.DISPLAY_CONTROL_CONTENT?.intro_msg
         if(introMessage) {
@@ -66,6 +67,7 @@ $(document).ready(function () {
 
         $('.phone_li').addClass('none');
         $('.intro').addClass('none');
+        console.log({afterClickSendCode: $('.phone_li')})
     });
 
     $('#phoneVerificationControl_but_verify_code').on('click', async function () {
@@ -84,6 +86,7 @@ $(document).ready(function () {
     });
 
     waitForButtonEnabled('continue').then(button => {
+        console.log({aaa: 'button enabled'})
         $('#verifying_blurb').addClass('working')
         setTimeout(() => {
             button.click()
