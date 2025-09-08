@@ -24,12 +24,10 @@ function addRequiredSign()  {
 
 function waitForElements() {
     return new Promise((resolve, reject) => {
-        let attempts = 0;
-
-        function checkElements() {
-
-            const elements = {
+        function getElements() {
+            return {
                 forgotPassword: document.getElementById('ForgotPasswordExchange'),
+                passwordlessExchange: document.getElementById('PasswordlessExchange'),
                 createAccount: document.getElementById('SignUpExchange'),
                 form: document.getElementById('localAccountForm'),
                 isLoginPage: document.querySelector('#api.signIn'),
@@ -38,20 +36,41 @@ function waitForElements() {
                 socialSection: document.querySelector('.claims-provider-list-buttons.social'),
                 next: document.getElementById('next')
             };
+        }
 
-            const requiredElements = ['forgotPassword', 'createAccount', 'form', 'isLoginPage', 'next'];
+        const requiredElements = ['forgotPassword', 'createAccount', 'form', 'isLoginPage', 'next'];
+
+        const elements = getElements();
+        const allElementsFound = requiredElements.every(key => elements[key]);
+
+        if (allElementsFound) {
+            resolve(elements);
+            return;
+        }
+
+        // Set a timeout for maximum waiting time
+        const timeout = setTimeout(() => {
+            observer.disconnect();
+            reject(new Error('Login page elements not found in time'));
+        }, config.maxAttempts * config.checkInterval);
+
+        // Use MutationObserver to watch for DOM changes
+        const observer = new MutationObserver((mutations, obs) => {
+            const elements = getElements();
             const allElementsFound = requiredElements.every(key => elements[key]);
 
             if (allElementsFound) {
+                clearTimeout(timeout);
+                obs.disconnect();
                 resolve(elements);
-            } else if (++attempts <= config.maxAttempts) {
-                setTimeout(checkElements, config.checkInterval);
-            } else {
-                reject(new Error('Login page elements not found in time'));
             }
-        }
+        });
 
-        checkElements();
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: false
+        });
     });
 }
 
@@ -107,12 +126,13 @@ function moveSocialSection(form, socialSection) {
 }
 
 
-function reorganizeOptions(socialSection, createAccount, forgotPassword) {
+function reorganizeOptions(socialSection, createAccount, forgotPassword, passwordlessExchange) {
     const options = socialSection.querySelector('.options');
     if (!options) return;
 
 
     options.innerHTML = '';
+
 
 
     const signUpContainer = document.createElement('div');
@@ -126,6 +146,12 @@ function reorganizeOptions(socialSection, createAccount, forgotPassword) {
 
     const forgotContainer = document.createElement('div');
     forgotContainer.appendChild(forgotPassword);
+
+    if(passwordlessExchange){
+        const passwordlessContainer = document.createElement('div');
+        passwordlessContainer.appendChild(passwordlessExchange);
+        options.appendChild(passwordlessContainer);
+    }
 
     options.appendChild(forgotContainer);
     options.appendChild(separatorContainer);
@@ -175,7 +201,7 @@ async function reorganizeLoginPage() {
         removeDivider(elements.divider);
         styleAuthLinks(elements.forgotPassword, elements.createAccount);
         moveSocialSection(elements.form, elements.socialSection);
-        reorganizeOptions(elements.socialSection, elements.createAccount, elements.forgotPassword);
+        reorganizeOptions(elements.socialSection, elements.createAccount, elements.forgotPassword, elements.passwordlessExchange);
         removeSocialIntro(elements.socialSection);
         setupNextButtonHandler()
 
