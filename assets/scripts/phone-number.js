@@ -1,6 +1,32 @@
-document.addEventListener('DOMContentLoaded', function() {
+function waitForInputEnabled(inputId) {
+    return new Promise(resolve => {
+        const input = document.getElementById(inputId);
+
+        if (input) {
+            resolve(input);
+            return;
+        }
+
+        const observer = new MutationObserver((mutations, obs) => {
+            const input = document.getElementById(inputId);
+            if (input) {
+                obs.disconnect();
+                resolve(button);
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['aria-disabled']
+        });
+    });
+}
+
+$(document).ready(async function () {
     // Get the original phone input
-    const originalPhoneInput = document.getElementById('phone');
+    const originalPhoneInput = await waitForInputEnabled('phone');
 
     if(!originalPhoneInput) {
         return
