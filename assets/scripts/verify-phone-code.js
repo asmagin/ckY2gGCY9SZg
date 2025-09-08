@@ -67,7 +67,6 @@ $(document).ready(function () {
 
         $('.phone_li').addClass('none');
         $('.intro').addClass('none');
-        console.log({afterClickSendCode: $('.phone_li')})
     });
 
     $('#phoneVerificationControl_but_verify_code').on('click', async function () {
