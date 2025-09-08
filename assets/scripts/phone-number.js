@@ -11,7 +11,7 @@ function waitForInputEnabled(inputId) {
             const input = document.getElementById(inputId);
             if (input) {
                 obs.disconnect();
-                resolve(button);
+                resolve(input);
             }
         });
 
