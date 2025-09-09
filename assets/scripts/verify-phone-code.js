@@ -164,6 +164,7 @@ $(document).ready(function () {
     }
 
     $('#phoneVerificationControl_but_send_code').on('click', async function () {
+        console.log({beforeClickSendCode: 'clicking send code button'})
         await waitForElementVisibleTest('.verificationCode_li');
         console.log({afterClickSendCode: 'code sent'})
 
