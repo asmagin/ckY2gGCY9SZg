@@ -194,6 +194,7 @@ $(document).ready(function () {
         $('#verifying_blurb').addClass('working')
         setTimeout(() => {
             button.click()
+            document.querySelector('.container').remove();
         }, 0)
     });
 });
