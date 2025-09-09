@@ -50,122 +50,10 @@ $(document).ready(function () {
         });
     }
 
-    function waitForElementVisibleTest(selector, timeout = 10000) {
-        return new Promise((resolve, reject) => {
-            // Check if element is already visible
-            if ($(selector).is(':visible')) {
-                console.log(`Element ${selector} is already visible`);
-                resolve();
-                return;
-            }
-
-            console.log(`Waiting for element ${selector} to become visible...`);
-
-            // Set a timeout to avoid hanging indefinitely
-            const timeoutId = setTimeout(() => {
-                if (observer) {
-                    observer.disconnect();
-                }
-                clearInterval(pollId);
-                console.warn(`Timeout waiting for element ${selector} to become visible`);
-                // Resolve anyway to prevent blocking the flow
-                resolve();
-            }, timeout);
-
-            // Use MutationObserver to watch for DOM changes
-            const observer = new MutationObserver((mutations, obs) => {
-                if ($(selector).is(':visible')) {
-                    obs.disconnect();
-                    clearTimeout(timeoutId);
-                    clearInterval(pollId);
-                    console.log(`Element ${selector} is now visible (via MutationObserver)`);
-                    resolve();
-                }
-            });
-
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                attributeFilter: ['style', 'class', 'display', 'visibility']
-            });
-
-            // Also use polling as a fallback mechanism
-            const pollId = setInterval(() => {
-                if ($(selector).is(':visible')) {
-                    observer.disconnect();
-                    clearTimeout(timeoutId);
-                    clearInterval(pollId);
-                    console.log(`Element ${selector} is now visible (via polling)`);
-                    resolve();
-                }
-            }, 100);
-        });
-    }
-
-    function waitForButtonEnabledTest(buttonId, timeout = 10000) {
-        return new Promise(resolve => {
-            const button = document.getElementById(buttonId);
-
-            console.log(`Checking if button ${buttonId} is enabled...`);
-
-            if (button && button.getAttribute('aria-disabled') === 'false') {
-                console.log(`Button ${buttonId} is already enabled`);
-                resolve(button);
-                return;
-            }
-
-            console.log(`Waiting for button ${buttonId} to become enabled...`);
-
-            // Set a timeout to avoid hanging indefinitely
-            const timeoutId = setTimeout(() => {
-                if (observer) {
-                    observer.disconnect();
-                }
-                clearInterval(pollId);
-                console.warn(`Timeout waiting for button ${buttonId} to become enabled`);
-                // Try to resolve with the button anyway to prevent blocking the flow
-                const button = document.getElementById(buttonId);
-                if (button && button.getAttribute('aria-disabled') === 'false') {
-                    resolve(button);
-                }
-            }, timeout);
-
-            const observer = new MutationObserver((mutations, obs) => {
-                const button = document.getElementById(buttonId);
-                if (button && button.getAttribute('aria-disabled') === 'false') {
-                    obs.disconnect();
-                    clearTimeout(timeoutId);
-                    clearInterval(pollId);
-                    console.log(`Button ${buttonId} is now enabled (via MutationObserver)`);
-                    resolve(button);
-                }
-            });
-
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                attributeFilter: ['aria-disabled', 'disabled']
-            });
-
-            // Also use polling as a fallback mechanism
-            const pollId = setInterval(() => {
-                const button = document.getElementById(buttonId);
-                if (button && button.getAttribute('aria-disabled') === 'false') {
-                    observer.disconnect();
-                    clearTimeout(timeoutId);
-                    clearInterval(pollId);
-                    console.log(`Button ${buttonId} is now enabled (via polling)`);
-                    resolve(button);
-                }
-            }, 100);
-        });
-    }
 
     $('#phoneVerificationControl_but_send_code').on('click', async function () {
         console.log({beforeClickSendCode: 'clicking send code button'})
-        await waitForElementVisibleTest('.verificationCode_li');
+        await waitForElementVisible('.verificationCode_li');
         console.log({afterClickSendCode: 'code sent'})
 
         const introMessage = window?.SA_FIELDS.AttributeFields[0]?.DISPLAY_CONTROL_CONTENT?.intro_msg
@@ -192,7 +80,7 @@ $(document).ready(function () {
         }
     });
 
-    waitForButtonEnabledTest('continue').then(button => {
+    waitForButtonEnabled('continue').then(button => {
         console.log({aaa: 'button enabled'})
         $('#verifying_blurb').addClass('working')
         setTimeout(() => {
