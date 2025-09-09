@@ -177,7 +177,7 @@ $(document).ready(function () {
     });
 
     $('#phoneVerificationControl_but_verify_code').on('click', async function () {
-        await waitForButtonEnabledTest('#phoneVerificationControl_but_change_claims');
+        await waitForButtonEnabledTest('phoneVerificationControl_but_change_claims');
 
         $('.phoneVerificationCode_li').addClass('none');
         const rePassword = $('.reenterPassword_li');
