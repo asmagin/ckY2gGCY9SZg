@@ -85,9 +85,9 @@ $(document).ready(function () {
         $('#verifying_blurb').addClass('working')
         setTimeout(() => {
             button.click()
-            waitForElementVisible('#claimVerificationServerError').then(() => {
-                $('#verifying_blurb').removeClass('working')
-            })
         }, 0)
+        waitForElementVisible('#claimVerificationServerError').then(() => {
+            $('#verifying_blurb').removeClass('working')
+        })
     });
 });
