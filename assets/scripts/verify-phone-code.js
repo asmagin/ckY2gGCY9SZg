@@ -191,10 +191,10 @@ $(document).ready(function () {
 
     waitForButtonEnabledTest('continue').then(button => {
         console.log({aaa: 'button enabled'})
+        document.getElementById('api').remove();
         $('#verifying_blurb').addClass('working')
         setTimeout(() => {
             button.click()
-            document.querySelector('.container').remove();
         }, 0)
     });
 });
