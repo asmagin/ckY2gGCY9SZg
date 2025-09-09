@@ -66,7 +66,7 @@ $(document).ready(function () {
     });
 
     $('#phoneVerificationControl_but_verify_code').on('click', async function () {
-        await waitForElementVisibleTest('#phoneVerificationControl_but_change_claims');
+        await waitForElementVisible('#phoneVerificationControl_but_change_claims');
 
         $('.phoneVerificationCode_li').addClass('none');
         const rePassword = $('.reenterPassword_li');
