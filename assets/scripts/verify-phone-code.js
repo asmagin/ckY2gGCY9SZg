@@ -123,7 +123,9 @@ function waitForButtonEnabledTest(buttonId, timeout = 10000) {
             console.warn(`Timeout waiting for button ${buttonId} to become enabled`);
             // Try to resolve with the button anyway to prevent blocking the flow
             const button = document.getElementById(buttonId);
-            resolve(button);
+            if (button && button.getAttribute('aria-disabled') === 'false') {
+                resolve(button);
+            }
         }, timeout);
 
         const observer = new MutationObserver((mutations, obs) => {
