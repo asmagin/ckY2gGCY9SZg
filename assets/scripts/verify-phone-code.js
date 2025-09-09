@@ -87,4 +87,8 @@ $(document).ready(function () {
             button.click()
         }, 0)
     });
+
+    waitForElementVisible('#claimVerificationServerError').then(() => {
+        $('#verifying_blurb').removeClass('working')
+    })
 });
