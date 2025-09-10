@@ -35,6 +35,32 @@ function createBackButton() {
     return backButton;
 }
 
+function waitForElementVisible(selector) {
+    return new Promise(resolve => {
+        if ($(selector).is(':visible')) {
+            resolve();
+            return;
+        }
+
+        const observer = new MutationObserver((mutations, obs) => {
+            if ($(selector).is(':visible')) {
+                obs.disconnect();
+                resolve();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['style', 'class']
+        });
+    });
+}
+
 $(document).ready(function () {
-    $('#api').prepend(createBackButton());
+    waitForElementVisible('#api').then(() => {
+        $('#api').prepend(createBackButton());
+    });
+
 })
