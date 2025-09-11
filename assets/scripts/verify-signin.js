@@ -82,6 +82,9 @@ $(document).ready(function () {
         setTimeout(() => {
             button.click()
         }, 0)
+        waitForElementVisible('#claimVerificationServerError').then(() => {
+            $('#verifying_blurb').removeClass('working')
+        })
     });
 
     waitForElementVisible('#emailVerificationControl_but_send_code').then(() => {
