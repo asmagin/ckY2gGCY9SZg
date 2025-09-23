@@ -81,7 +81,7 @@ $(document).ready(function () {
     });
 
     waitForElementVisible('#phoneVerificationControl_but_send_code').then(() => {
-        if ($('#formatted-phone').val().trim() !== '') {
+        if ($('#phone').val().trim() !== '') {
             $('#phoneVerificationControl_but_send_code').click()
         }
     })
