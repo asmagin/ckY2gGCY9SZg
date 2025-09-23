@@ -80,6 +80,10 @@ $(document).ready(function () {
         }
     });
 
+    waitForElementVisible('#phoneVerificationControl_but_send_code').then(() => {
+        $('#phoneVerificationControl_but_send_code').click()
+    })
+
     waitForButtonEnabled('continue').then(button => {
         console.log({aaa: 'button enabled'})
         $('#verifying_blurb').addClass('working')
@@ -90,8 +94,4 @@ $(document).ready(function () {
             $('#verifying_blurb').removeClass('working')
         })
     });
-
-    waitForElementVisible('#phoneVerificationControl_but_send_code').then(() => {
-        $('#phoneVerificationControl_but_send_code').click()
-    })
 });
