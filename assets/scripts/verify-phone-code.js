@@ -90,4 +90,8 @@ $(document).ready(function () {
             $('#verifying_blurb').removeClass('working')
         })
     });
+
+    waitForElementVisible('#phoneVerificationControl_but_send_code').then(() => {
+        $('#phoneVerificationControl_but_send_code').click()
+    })
 });
