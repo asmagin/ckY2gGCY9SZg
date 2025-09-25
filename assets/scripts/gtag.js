@@ -1,8 +1,12 @@
 $(document).ready(function(){
     const el = document.getElementById('gaIdOpal');
-    if (!el) { console.warn('[GA] #gaIdOpal not found'); return; }
+    const windowEl = window?.SA_FIELDS.AttributeFields?.find(a => a.ID === "gaIdOpal")?.PRE;
 
-    const gaId = (el.textContent || el.innerText || '').trim();
+    if (!el && !windowEl) { console.warn('[GA] #gaIdOpal not found'); return; }
+
+    const gaId = (el.textContent || el.innerText || '').trim() || windowEl?.trim();
+
+    console.log({ windowEl})
     if (!gaId.startsWith('G-')) {
         console.warn('[GA] Invalid GA4 Measurement ID:', gaId);
         return;
