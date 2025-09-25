@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     if (!el && !windowEl) { console.warn('[GA] #gaIdOpal not found'); return; }
 
-    const gaId = (el.textContent || el.innerText || '').trim() || windowEl?.trim();
+    const gaId = (el?.textContent || el?.innerText || '').trim() || windowEl?.trim();
 
     console.log({ windowEl})
     if (!gaId.startsWith('G-')) {
