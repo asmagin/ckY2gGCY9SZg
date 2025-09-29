@@ -88,6 +88,8 @@ $(document).ready(function () {
     });
 
     waitForElementVisible('#emailVerificationControl_but_send_code').then(() => {
-        $('#emailVerificationControl_but_send_code').click()
+        if($('#email').val().length){
+            $('#emailVerificationControl_but_send_code').click()
+        }
     })
 });
